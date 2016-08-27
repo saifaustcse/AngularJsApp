@@ -1,0 +1,83 @@
+﻿<div class="row ">
+    <div class="panel">
+        <div class="panel-body">
+            <header class="panel">
+                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 search_panel">
+                    <div class="row">
+                        <div class="col-lg-8 col-md-6 col-sm-6 col-xs-6 search_control_right">
+                            <div class="input-group">
+                                <input type="text" ng-model="vm.searchText" class="form-control" placeholder="Search Customers">
+                                <span class="input-group-btn">
+                                    <button type="button" ng-click="vm.searchCustomers()" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 search_control_left">
+                            <span class="input-group-btn">
+                                <button class="btn btn-primary" type="button" data-ng-click="vm.addCustomer()"><span class="glyphicon glyphicon-pushpin"></span> Create Customer </button>
+                            </span>
+                            <span class="input-group-btn">
+                                <button class="btn btn-success" type="button" data-ng-click="vm.editCustomer()"><span class="glyphicon glyphicon-pushpin"></span> Edit Customer </button>
+                            </span>
+                            <span class="input-group-btn">
+                                <button class="btn btn-danger" type="button" data-ng-click="vm.deleteCustomer()"><span class="glyphicon glyphicon-pushpin"></span> Delete Customer </button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <h2 class="warning">{{vm.title}}</h2>
+            </header>
+
+            <div class="col-md-12">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th width="10%">Customer No</th>
+                                <th width="10%">Customer Type</th>
+                                <th width="10%">First Name</th>
+                                <th width="10%">Last Name</th>
+                                <th width="10%">Email</th>
+                                <th width="10%">Phone Number</th>
+                                <th width="10%">City</th>
+                                <th width="10%">Source</th>
+                                <th width="10%">Create Date</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="customer in vm.customerList">
+
+                                <td>{{customer.customerNo}}</td>
+                                <td>{{customer.customerType}}</td>
+                                <td> {{customer.firstName}}</td>
+                                <td> {{customer.lastName}}</td>
+                                <td> {{customer.emails.email}}</td>
+                                <td>{{customer.phoneNumber.number}}</td>
+                                <td>{{customer.address.city}}</td>
+                                <td>{{customer.source}}</td>
+                                <td>{{customer.createDate | date: "yyyy-MM-dd"}}</td>
+
+                                <td class="text-right">
+                                    <a style="cursor:pointer" ng-click="">
+                                        <span class="glyphicon glyphicon-trash" aria-hidden="true" title="Delete" ng-confirmation-click="vm.deleteCustomer(customer)"
+                                              ng-confirmation-message="Do you want to delete &quot;{{customer.customerNo}}&quot; customer?"
+                                              ng-confirmation-title="Remove customer"
+                                              ng-confirmation-yes-text="Yes"
+                                              ng-confirmation-cancel-text="No"></span>
+                                    </a>
+                                    <a style="cursor:pointer" ng-click="vm.editCustomer(customer)"><span class="glyphicon glyphicon-edit" aria-hidden="true" title="Edit"></span></a>
+
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+                </div>
+              
+
+            </div>
+        </div>
+    </div>
+</div>

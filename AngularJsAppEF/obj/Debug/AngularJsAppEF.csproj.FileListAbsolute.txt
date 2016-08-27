@@ -1,0 +1,14 @@
+H:\GitHubProject\AngularJsWebApiEF\AngularJsAppEF\bin\Debug\AngularJsAppEF.dll.config
+H:\GitHubProject\AngularJsWebApiEF\AngularJsAppEF\bin\Debug\AngularJsAppEF.dll
+H:\GitHubProject\AngularJsWebApiEF\AngularJsAppEF\bin\Debug\AngularJsAppEF.pdb
+H:\GitHubProject\AngularJsWebApiEF\AngularJsAppEF\bin\Debug\AngularJsAppModel.dll
+H:\GitHubProject\AngularJsWebApiEF\AngularJsAppEF\bin\Debug\EntityFramework.dll
+H:\GitHubProject\AngularJsWebApiEF\AngularJsAppEF\bin\Debug\EntityFramework.SqlServer.dll
+H:\GitHubProject\AngularJsWebApiEF\AngularJsAppEF\bin\Debug\AngularJsAppModel.pdb
+H:\GitHubProject\AngularJsWebApiEF\AngularJsAppEF\bin\Debug\EntityFramework.xml
+H:\GitHubProject\AngularJsWebApiEF\AngularJsAppEF\bin\Debug\EntityFramework.SqlServer.xml
+H:\GitHubProject\AngularJsWebApiEF\AngularJsAppEF\obj\Debug\AngularJsAppEF.csprojResolveAssemblyReference.cache
+H:\GitHubProject\AngularJsWebApiEF\AngularJsAppEF\obj\Debug\AngularJsAppEntityFramework.Migrations.version1.resources
+H:\GitHubProject\AngularJsWebApiEF\AngularJsAppEF\obj\Debug\AngularJsAppEF.csproj.GenerateResource.Cache
+H:\GitHubProject\AngularJsWebApiEF\AngularJsAppEF\obj\Debug\AngularJsAppEF.dll
+H:\GitHubProject\AngularJsWebApiEF\AngularJsAppEF\obj\Debug\AngularJsAppEF.pdb

@@ -1,0 +1,149 @@
+﻿<div class="row ">
+    <div class="col-md-12">
+        <div class="panel">
+            <div class="panel-body">
+                <header class="panel">
+                    <h2 class="warning">Customer Add</h2>
+                </header>
+              
+                  <div class="panel-body">
+                    <form name="vm.customerForm" novalidate>
+                        <div class="col-md-6 col-sm-6">
+                            <div class="form-group">
+                                <label for="firstName" class="control-label">First name</label>
+                                <input type="text" id="firstName" class="form-control" ng-model="vm.customer.customer.firstName" name="firstName" required ng-maxlength="60">
+                                <p ng-show="vm.customerForm.firstName.$error.required" class="help-block">First name is required</p>
+                                <p ng-show="vm.customerForm.firstName.$error.maxlength" class="help-block">First name is too long</p>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="lastName" class="control-label">Last name</label>
+                                <input type="text" id="lastName " class="form-control" ng-model="vm.customer.customer.lastName" name="lastName" required ng-maxlength="60">
+                                <p ng-show="vm.customerForm.lastName.$error.required" class="help-block">Last name is required</p>
+                                <p ng-show="vm.customerForm.lastName.$error.maxlength" class="help-block">Last name is too long</p>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="gender" class="control-label">Gender</label>
+                                <div class="input-group">
+                                    <div class="rdio rdio-primary">
+                                        <input id="radioFemale" type="radio" value="1" name="gender" ng-model="vm.customer.customer.gender" required>
+                                        <label for="radioFemale">Female</label>
+                                    </div>
+                                    <div class="rdio rdio-primary">
+                                        <input id="radioMale" type="radio" value="2" name="gender" ng-model="vm.customer.customer.gender" required>
+                                        <label for="radioMale">Male</label>
+                                    </div>
+                                </div>
+                                <p ng-show="vm.customerForm.gender.$error.required" class="help-block">Gender is required</p>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="maritalStatus" class="control-label">Marital Status</label>
+                                <select name="maritalStatus" class="form-control" ng-model="vm.customer.customer.maritalStatus" ng-options="option.value as option.text for option in vm.customer.customer.maritalStatuses" required>
+                                    <option value="">--Select Marital Status --</option>
+                                </select>
+                                <p ng-show="vm.customerForm.maritalStatus.$error.required || vm.customer.customer.maritalStatus ==0" class="help-block">Marital status is required</p>
+                            </div>
+
+                            <!--<div class="form-group">
+                                <label for="birthDate" class="control-label">Birth date</label>
+                                <p class="input-group">
+                                    <input type="text" name="birthDate" class="form-control" uib-datepicker-popup="MM/dd/yyyy" ng-model="vm.customer.customer.birthDate" is-open="vm.birthDatePopup.opened" datepicker-options="vm.birthDateOptions" close-text="Close" alt-input-formats="altInputFormats" required />
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn btn-default" ng-click="vm.birthDateOpen()"><i class="glyphicon glyphicon-calendar"></i></button>
+                                    </span>
+                                </p>
+                                <p ng-show="vm.customerForm.birthDate.$error.required" class="help-block" style="margin-top: -15px;">Birth date is required</p>
+                            </div>-->
+
+
+                            <div class="form-group">
+                                <label for="email" class="control-label">Email</label>
+                                <input type="email" id="email" class="form-control" ng-model="vm.customer.customer.emails.email" name="email" required>
+                                <p ng-show="vm.customerForm.email.$error.required" class="help-block">Email address is required</p>
+                                <p ng-show="vm.customerForm.email.$error.email" class="help-block">Invalid email address</p>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phoneNumber" class="control-label">Phone number</label>
+                                <input type="text" id="phoneNumber" class="form-control" ng-model="vm.customer.customer.phoneNumber.number" name="phoneNumber" ng-pattern="vm.mobilePattern" required>
+                                <p ng-show="vm.customerForm.phoneNumber.$error.required" class="help-block">Phone number is required</p>
+                                <p ng-show="vm.customerForm.phoneNumber.$error.pattern" class="help-block">Invalid phone number</p>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6 col-sm-6">
+                            <h3>Address</h3>
+                            <div class="form-group">
+                                <label for="addressType" class="control-label">Address Type</label>
+                                <select name="addressType" class="form-control" ng-model="vm.customer.customer.address.addressTypeId" ng-options="option.value as option.text for option in vm.customer.customer.addressTypes" required>
+                                    <option value="">--Select address type--</option>
+                                </select>
+                                <p ng-show="vm.customerForm.addressType.$error.required" class="help-block">Phone number type is required</p>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="careof" class="control-label">Care of</label>
+                                <input type="text" id="careof" class="form-control" ng-model="vm.customer.customer.address.careOf">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="street" class="control-label">Street</label>
+                                <input type="text" id="street" class="form-control" ng-model="vm.customer.customer.address.street">
+                            </div>
+                            <div class="form-group">
+                                <label for="house" class="control-label">House</label>
+                                <input type="text" id="house" class="form-control" ng-model="vm.customer.customer.address.house">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="postalCode" class="control-label">Postal code</label>
+                                <input type="text" id="postalCode" class="form-control" ng-model="vm.customer.customer.address.postalCode">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="city" class="control-label">City</label>
+                                <input type="text" id="city" class="form-control" ng-model="vm.customer.customer.address.city">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="country" class="control-label">Country</label>
+                                <input type="text" id="country" class="form-control" ng-model="vm.customer.customer.address.country">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="area" class="control-label">Area</label>
+                                <input type="text" id="area" class="form-control" ng-model="vm.customer.customer.address.area">
+                            </div>
+                            <div class="form-group">
+                                <label for="citySize" class="control-label">City size</label>
+                                <input type="text" id="citySize" class="form-control" ng-model="vm.customer.customer.address.citySize">
+                            </div>
+
+                            <div class="form-group">
+                                <div class="ckbox ckbox-primary">
+                                    <input id="primary" type="checkbox" value="1" ng-model="vm.customer.customer.address.isPrimary">
+                                    <label for="primary" class="control-label">Primary</label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="ckbox ckbox-primary">
+                                    <input id="foreign" type="checkbox" value="1" ng-model="vm.customer.customer.address.isForeign">
+                                    <label for="foreign" class="control-label">Foreign</label>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="col-lg-12 ">
+                    <button type="button" class="btn btn-info" ng-click="vm.save()" ><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>{{vm.saveButtonText}}</button>
+                    <button type="button" class="btn btn-info" ng-click="vm.close()"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

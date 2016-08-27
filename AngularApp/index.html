@@ -1,0 +1,73 @@
+﻿
+<!DOCTYPE html>
+<html data-ng-app="Demo">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Angular App</title>
+      
+</head>
+<body>
+    <div ng-include="'app/layout/shell.html'"></div>
+    
+    <!-- vendor css -->
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/bootstrap-theme.css" rel="stylesheet" />
+    <link href="Content/ui-bootstrap-csp.css" rel="stylesheet" />
+    <link href="Content/toastr.css" rel="stylesheet" />
+   
+    <!-- Custom css --> 
+    <link href="app/appStyle/custom-layout.css" rel="stylesheet" />
+    <link href="app/appStyle/theme.css" rel="stylesheet" />
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- vendor script -->
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-route.js"></script>   
+    <script src="Scripts/angular-animate.js"></script>
+    <script src="Scripts/angular-mocks.js"></script>
+    
+    <script src="Scripts/jquery-1.9.1.js"></script>
+    <script src="Scripts/script.js"></script>
+    <script src="Scripts/toastr.js"></script>
+
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="Scripts/angular-ui/ui-bootstrap-tpls.js"></script>
+    <script src="Scripts/angular-ui/ui-bootstrap-tpls.min.js"></script>
+    <script src="Scripts/angular-ui/ui-bootstrap.js"></script>
+    <script src="Scripts/angular-ui/ui-bootstrap.min.js"></script>
+    
+    <!-- Application script -->
+    <script src="app/app.js"></script>
+    <script src="app/routes.js"></script>
+    
+    <script src="app/directives/directives.js"></script>
+    <script src="app/service/dataConstants.js"></script>
+    <script src="app/service/notificationService.js"></script>
+    <script src="app/service/customerService.js"></script>
+    <script src="app/service/studentService.js"></script>
+
+    <script src="app/student/homeController.js"></script>
+    <script src="app/student/coursesController.js"></script>
+    <script src="app/student/studentsController.js"></script>
+    <script src="app/student/studentDetailsController.js"></script>
+    <script src="app/student/addupdateStudentController.js"></script>
+    <script src="app/student/searchStudentController.js"></script>
+    
+  
+    <script src="app/customers/customerAddController.js"></script>
+    <script src="app/customers/customersController.js"></script>
+   
+
+</body>
+</html>
