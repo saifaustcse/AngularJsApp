@@ -28,7 +28,7 @@
             {
                 url: '/home',
                 config: {
-                    templateUrl: 'app/student/home.html',
+                    templateUrl: 'app/home/home.html',
                     controller: 'homeController',
                     controllerAs: 'homeCtr',
                     title: 'home'
