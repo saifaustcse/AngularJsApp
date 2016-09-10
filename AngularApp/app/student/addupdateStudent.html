@@ -1,7 +1,7 @@
 ﻿<div class="contact-wrap">
     <nav class="contact-nav">
         <ul class="nav nav-tabs nav-justified">
-            <li class="active"><a href="#"><span class="glyphicon glyphicon-book"></span> Students</a></li>
+            <li class="active"><a ng-click="vm.backToStudents()"><span class="glyphicon glyphicon-book"></span> Students</a></li>
             <li><a href="#/studentSearch"><span class="glyphicon glyphicon-search"></span> Search</a></li>
         </ul>
     </nav>
@@ -11,8 +11,8 @@
                 <div class="container-fluid data-input">
                     <div class="navbar-header">
                         <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
-                            <a ng-click=" addupdateStudentCtr.backToStudents()" class="btn btn-default" role="button"><span class="glyphicon glyphicon-remove"></span> Cancel</a>
-                            <a ng-click="addupdateStudentCtr.save()" class="btn btn-default" role="button"><span class="glyphicon glyphicon-ok"></span> {{addupdateStudentCtr.saveButtonText}}</a>
+                            <a ng-click="vm.backToStudents()" class="btn btn-default" role="button"><span class="glyphicon glyphicon-remove"></span> Cancel</a>
+                            <a ng-click="vm.save()" class="btn btn-default" role="button"><span class="glyphicon glyphicon-ok"></span> {{vm.saveButtonText}}</a>
                         </div>
                     </div>
                 </div>
@@ -24,35 +24,35 @@
                             <div class="form-group">
                                 <label class="form-label">Name</label>
                                 <div class="data-input ">
-                                    <input type="text" ng-model="addupdateStudentCtr.student.student.name" class="form-control" placeholder="Name">
+                                    <input type="text" ng-model="vm.student.student.name" class="form-control" placeholder="Name">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="form-label">Phone</label>
                                 <div class="data-input ">
-                                    <input type="text" ng-model="addupdateStudentCtr.student.student.phone" class="form-control" placeholder="Phone">
+                                    <input type="text" ng-model="vm.student.student.phone" class="form-control" placeholder="Phone">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="form-label">Email</label>
                                 <div class="data-input ">
-                                    <input type="email" ng-model="addupdateStudentCtr.student.student.email" class="form-control" placeholder="Email">
+                                    <input type="email" ng-model="vm.student.student.email" class="form-control" placeholder="Email">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="form-label">Organization</label>
                                 <div class="data-input ">
-                                    <input type="text" ng-model="addupdateStudentCtr.student.student.organization" class=" form-control" placeholder="Organization Name">
+                                    <input type="text" ng-model="vm.student.student.organization" class=" form-control" placeholder="Organization Name">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="form-label">Address</label>
                                 <div class="data-input ">
-                                    <input type="email" ng-model="addupdateStudentCtr.Student.Student.House" class="form-control" placeholder="House">
-                                    <input type="text" ng-model="addupdateStudentCtr.Student.Student.Street" class="form-control" placeholder="Street">
-                                    <input type="text" ng-model="addupdateStudentCtr.Student.Student.Pobox" class=" form-control" placeholder="Pobox">
-                                    <input type="text" ng-model="addupdateStudentCtr.Student.Student.City" class="form-control" placeholder="City">
-                                    <input type="text" ng-model="addupdateStudentCtr.Student.Student.ZipCode" class="form-control" placeholder="ZIP code">
+                                    <input type="email" ng-model="vm.Student.Student.House" class="form-control" placeholder="House">
+                                    <input type="text" ng-model="vm.Student.Student.Street" class="form-control" placeholder="Street">
+                                    <input type="text" ng-model="vm.Student.Student.Pobox" class=" form-control" placeholder="Pobox">
+                                    <input type="text" ng-model="vm.Student.Student.City" class="form-control" placeholder="City">
+                                    <input type="text" ng-model="vm.Student.Student.ZipCode" class="form-control" placeholder="ZIP code">
                                 </div>
                                 <div class="data-read hide">
                                     <div>15/A</div>
@@ -64,7 +64,7 @@
                             <div class="form-group">
                                 <label class="form-label">Courses</label>
                                 <div class="data-input ">
-                                    <select class="form-control" ng-model="addupdateStudentCtr.Student.Student.Courses">
+                                    <select class="form-control" ng-model="vm.Student.Student.Courses">
                                         <option value="">Physics</option>
                                         <option value="">Math</option>
                                         <option value="">Biology</option>

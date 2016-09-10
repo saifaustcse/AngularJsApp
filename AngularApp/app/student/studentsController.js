@@ -5,21 +5,22 @@
     var controllerId = 'studentsController';
     angular
           .module('Demo')
-          .controller(controllerId, ['studentService', 'notificationService','$location',studentsController]);
+          .controller(controllerId, ['studentService', 'notificationService', '$location', studentsController]);
 
-    function studentsController(studentService,notificationService, location) {
+    function studentsController(studentService, notificationService, location) {
 
         /* jshint validthis:true */
-        var studentsCtr = this;
-        studentsCtr.studentDetails = studentDetails;
-        studentsCtr.studentCreate = studentCreate;
-        studentsCtr.Students = {};
-      
+        var vm = this;
+        vm.studentDetails = studentDetails;
+        vm.studentCreate = studentCreate;
+        vm.backToStudents = backToStudents;
+        vm.Students = {};
+
         getStudents();
         function getStudents() {
             studentService.GetAllStudent().then(function (data) {
-                studentsCtr.studentList = data.result.students;
-                studentsCtr.total = data.total;
+                vm.studentList = data.result.students;
+                vm.total = data.total;
             },
             function (errorMessage) {
                 notificationService.displayError(errorMessage.message);
@@ -33,10 +34,13 @@
 
         function studentCreate() {
             var url = '/student-create';
-            location.path(url);         
+            location.path(url);
         }
 
-       
+        function backToStudents() {
+            var url = '/students';
+            location.path(url).search({});
 
+        }
     }
 })();

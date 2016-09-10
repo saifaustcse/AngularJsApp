@@ -11,7 +11,7 @@
 
     function homeController(studentService) {
 
-        var homeCtr = this;
+        var vm = this;
       
 
     }

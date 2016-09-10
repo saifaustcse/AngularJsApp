@@ -10,34 +10,38 @@
     function searchStudentController(studentService, location) {
 
         /* jshint validthis:true */
-        var searchStudentCtr = this;
-        searchStudentCtr.studentDetails = StudentDetails;
-        searchStudentCtr.studentCreate = StudentCreate;
-        searchStudentCtr.studentSearch = StudentSearch;
-        searchStudentCtr.Students = {};
+        var vm = this;
+        vm.studentDetails = studentDetails;
+        vm.studentCreate = studentCreate;
+        vm.studentSearch = studentSearch;
+        vm.backToStudents = backToStudents;
+        vm.Students = {};
 
         getStudents();
         function getStudents() {
             alert("ffff");
-            searchStudentCtr.Students = studentService.GetAllStudent();
+            vm.Students = studentService.GetAllStudent();
         }
 
-        function StudentDetails(data) {
+        function studentDetails(data) {
             var url = '/studentDetails';
             //location.path(url);
             location.path(url).search({ 'student': data });
         }
 
-        function StudentCreate() {
+        function studentCreate() {
             var url = '/student-create';
             location.path(url);
         }
-        function StudentSearch() {
+        function studentSearch() {
             //var url = '/student-create';
             //location.path(url);
         }
 
+        function backToStudents() {
+            var url = '/students';
+            location.path(url).search({});
 
-
+        }
     }
 })();

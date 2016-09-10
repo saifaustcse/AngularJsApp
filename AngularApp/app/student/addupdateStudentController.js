@@ -5,37 +5,37 @@
     var controllerId = 'addupdateStudentController';
     angular
           .module('Demo')
-          .controller(controllerId, ['studentService','notificationService', '$location', addupdateStudentController]);
+          .controller(controllerId, ['studentService', 'notificationService', '$location', addupdateStudentController]);
 
-    function addupdateStudentController(studentService,notificationService, location) {
+    function addupdateStudentController(studentService, notificationService, location) {
 
         /* jshint validthis:true */
-        var addupdateStudentCtr = this;
-        addupdateStudentCtr.backToStudents = backToStudents;
-        addupdateStudentCtr.addStudent = addStudent;
-        addupdateStudentCtr.updateStudent = updateStudent;
-        addupdateStudentCtr.save = save;
-        addupdateStudentCtr.saveButtonText = 'Save Student';
-        addupdateStudentCtr.studentId = 0;
-        addupdateStudentCtr.student = {};
-       
+        var vm = this;
+        vm.backToStudents = backToStudents;
+        vm.addStudent = addStudent;
+        vm.updateStudent = updateStudent;
+        vm.save = save;
+        vm.saveButtonText = 'Save Student';
+        vm.studentId = 0;
+        vm.student = {};
+
         if (location.search().studentId != undefined && location.search().studentId != null && location.search().studentId != '') {
-            addupdateStudentCtr.studentId = location.search().studentId;
-            addupdateStudentCtr.saveButtonText = 'Update Student';
+            vm.studentId = location.search().studentId;
+            vm.saveButtonText = 'Update Student';
         }
 
         getStudent();
         function getStudent() {
-            studentService.GetStudent(addupdateStudentCtr.studentId).then(function (data) {
-                addupdateStudentCtr.student = data.result;
+            studentService.GetStudent(vm.studentId).then(function (data) {
+                vm.student = data.result;
             },
            function (errorMessage) {
-               addupdateStudentCtr.displayError(errorMessage.message);
+               vm.displayError(errorMessage.message);
            });
         }
 
         function save() {
-           if (addupdateStudentCtr.studentId > 0) {
+            if (vm.studentId > 0) {
                 updateStudent();
             }
             else {
@@ -44,11 +44,11 @@
         }
 
         function addStudent() {
-            studentService.SaveStudent(addupdateStudentCtr.student).then(function (data) {
-                addupdateStudentCtr.student = data.result;
-               
-                var url = '/student-create';
-                location.path(url).search({ 'studentId': addupdateStudentCtr.student.id });
+            studentService.SaveStudent(vm.student).then(function (data) {
+                vm.student = data.result.student;
+
+                var url = '/studentDetails';
+                location.path(url).search({ 'studentId': vm.student.id });
                 notificationService.displaySuccess('Student saved');
             },
             function (errorMessage) {
@@ -57,22 +57,23 @@
         }
 
         function updateStudent() {
-            studentService.UpdateStudent(addupdateStudentCtr.studentId, addupdateStudentCtr.student).then(function (data) {
-                addupdateStudentCtr.student = data.result;
+            studentService.UpdateStudent(vm.studentId, vm.student).then(function (data) {
+                vm.student = data.result.student;
+
+                var url = '/studentDetails';
+                location.path(url).search({ 'studentId': vm.student.id });
                 notificationService.displaySuccess('Student updated');
             },
              function (errorMessage) {
                  notificationService.displayError(errorMessage.message);
              });
         }
-    
-        
+
+
         function backToStudents() {
             var url = '/students';
-            location.path(url);
+            location.path(url).search({});
 
         }
-
-
     }
 })();

@@ -23,7 +23,6 @@
 
         //insert a new student
         function saveStudent(data) {
-            alert("Inside save saveStudent" + JSON.stringify(data));
             var url = dataConstants.STUDENT_URL + 'save-student';
             var deferred = $q.defer();
 
