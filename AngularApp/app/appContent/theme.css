@@ -128,9 +128,9 @@
     text-transform: capitalize;
 }
 
-.navbar-default, .form-control {
+/*.navbar-default, .form-control {
     margin-bottom: 10px;
-}
+}*/
 
 .btn-lg {
     border-bottom-width: 1px;
@@ -166,12 +166,14 @@
     text-transform: uppercase;
     display: block;
     font-weight: normal;
+    height: 34px;
+    padding-left: 15px;
 }
 
-.panel-title {
+/*.panel-title {
     padding: 15px 0 5px;
     margin: 0;
-}
+}*/
 
 .panel-body .list-group {
     margin: 0;

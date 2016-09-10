@@ -11,7 +11,6 @@
 
         /* jshint validthis:true */
         var vm = this;
-        vm.backToStudents = backToStudents;
         vm.addStudent = addStudent;
         vm.updateStudent = updateStudent;
         vm.save = save;
@@ -67,13 +66,6 @@
              function (errorMessage) {
                  notificationService.displayError(errorMessage.message);
              });
-        }
-
-
-        function backToStudents() {
-            var url = '/students';
-            location.path(url).search({});
-
         }
     }
 })();

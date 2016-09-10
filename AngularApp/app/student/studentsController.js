@@ -13,7 +13,6 @@
         var vm = this;
         vm.studentDetails = studentDetails;
         vm.studentCreate = studentCreate;
-        vm.backToStudents = backToStudents;
         vm.Students = {};
 
         getStudents();
@@ -35,12 +34,6 @@
         function studentCreate() {
             var url = '/student-create';
             location.path(url);
-        }
-
-        function backToStudents() {
-            var url = '/students';
-            location.path(url).search({});
-
         }
     }
 })();

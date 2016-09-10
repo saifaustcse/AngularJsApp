@@ -1,12 +1,4 @@
-﻿<div class="contact-wrap">
-
-    <nav class="contact-nav">
-        <ul class="nav nav-tabs nav-justified">
-            <li class="active"><a ng-click="vm.backToStudents()"><span class="glyphicon glyphicon-book"></span> Students</a></li>
-            <li><a href="#/studentSearch"><span class="glyphicon glyphicon-search"></span> Search</a></li>
-        </ul>
-    </nav>
-
+﻿<div class="contact-wrap">   
     <div class="vbox">
         <div class="row-row">
             <div class="cell">
@@ -14,8 +6,17 @@
                     <article class="contact-list contact-content has-aside">
                         <div class="panel">
                             <div class="panel-heading">
-                                <h5 class="panel-title">Students List</h5>
+                                <div class="row">
+                                    <div class="col-sm-6"><label class="panel-title">Students List</label></div>
+                                    <div class="col-sm-4"><input type="text" class="form-control" placeholder="Search"></div>
+                                    <div class="col-sm-2">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-default" type="submit">Go!</button>
+                                        </span>
+                                    </div>
+                                </div>
                             </div>
+
                             <div class="panel-body">
                                 <div class="list-group" ng-repeat="student in vm.studentList">
                                     <a ng-click="vm.studentDetails(student.id)" class=" list-group-item">
