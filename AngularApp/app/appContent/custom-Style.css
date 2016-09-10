@@ -1,4 +1,7 @@
-﻿
+﻿.nav, .pagination, .carousel, .panel-title a {
+    cursor: pointer;
+}
+
 .row {
     margin-bottom: 20px;
 }
@@ -18,22 +21,115 @@
     border: 1px solid rgba(86, 61, 124, .2);
 }
 
-.featurette {
+.ellipsis {
+    white-space: nowrap;
     overflow: hidden;
-    margin-top: 35px;
+    -moz-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    display: block;
 }
 
-.featurette-image.pull-left {
-    margin-right: 40px;
+.contact-wrap {
+    width: 700px;
+    margin: 15px auto;
+    height: 800px;
+    position: relative;
+    overflow: hidden;
 }
 
-.featurette-image.pull-right {
-    margin-left: 40px;
+.contact-body {
+    position: absolute;
+    top: 42px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #EFEFEF;
+    border: 1px solid #DDD;
+    border-top-width: 0px;
+    border-top-color: #DDD;
+    overflow: hidden;
+    -webkit-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    transition: all 1s ease;
 }
 
-.featurette-heading {
-    font-size: 50px;
+
+
+.list-group-item-heading {
+    text-transform: capitalize;
 }
+
+.btn-lg {
+    border-bottom-width: 1px;
+    border-left-width: 0px;
+    border-right-width: 0px;
+}
+
+.btn-lg,
+.navbar-default,
+.list-group,
+.list-group-item:first-child,
+.list-group-item:last-child {
+    -ms-border-radius: 0px;
+    border-radius: 0px;
+}
+
+.navbar-header .input-group, .navbar-header .btn-group {
+    margin-top: 7px;
+}
+
+
+.panel {
+    border-width: 0;
+    margin-bottom: 0;
+    background: transparent;
+}
+
+.panel-heading, .panel-body {
+    padding: 0;
+}
+
+.panel-title, .form-label {
+    color: #0AF;
+    text-transform: uppercase;
+    display: block;
+    font-weight: normal;
+    height: 34px;
+    padding-left: 15px;
+}
+
+.panel-title {
+    padding: 15px 0 5px;
+    margin: 0;
+}
+
+.panel-body .list-group {
+    margin: 0;
+}
+
+.panel-footer {
+    background-color: rgba(0, 0, 0, 0);
+    color: #FFF;
+    padding: 5px 0;
+    border-top: 1px solid #0AF;
+}
+
+    .panel-footer a {
+        color: #EFEFEF;
+    }
+
+        .panel-footer a:hover {
+            color: #FFF;
+        }
+
+    .panel-footer .pagination {
+        margin: 0;
+    }
+
 
 .card {
     margin-top: 20px;
@@ -134,9 +230,4 @@
 
 .btn-pref .btn {
     -webkit-border-radius: 0 !important;
-}
-
-
-.nav, .pagination, .carousel, .panel-title a {
-    cursor: pointer;
 }

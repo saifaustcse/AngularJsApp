@@ -71,15 +71,6 @@
                  }
              },
              {
-                 url: '/studentSearch',
-                 config: {
-                     templateUrl: 'app/student/searchStudent.html',
-                     controller: 'searchStudentController',
-                     controllerAs: 'vm',
-                     title: 'studentSearch'
-                 }
-             },
-             {
                  url: '/customers',
                  config: {
                      templateUrl: 'app/customers/customers.html',

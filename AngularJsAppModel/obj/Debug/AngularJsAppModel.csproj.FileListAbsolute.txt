@@ -14,6 +14,5 @@ H:\DotNetC#\projectVisualStudio2013\StudentManagemnet\AngularJsAppModel\obj\Debu
 H:\DotNetC#\projectVisualStudio2013\StudentManagemnet\AngularJsAppModel\obj\Debug\AngularJsAppModel.pdb
 H:\GitHubProject\AngularJsWebApiEF\AngularJsAppModel\bin\Debug\AngularJsAppModel.dll
 H:\GitHubProject\AngularJsWebApiEF\AngularJsAppModel\bin\Debug\AngularJsAppModel.pdb
-H:\GitHubProject\AngularJsWebApiEF\AngularJsAppModel\obj\Debug\AngularJsAppModel.csprojResolveAssemblyReference.cache
 H:\GitHubProject\AngularJsWebApiEF\AngularJsAppModel\obj\Debug\AngularJsAppModel.dll
 H:\GitHubProject\AngularJsWebApiEF\AngularJsAppModel\obj\Debug\AngularJsAppModel.pdb

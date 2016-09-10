@@ -13,6 +13,7 @@
         var vm = this;
         vm.addStudent = addStudent;
         vm.updateStudent = updateStudent;
+        vm.backToStudents = backToStudents;
         vm.save = save;
         vm.saveButtonText = 'Save Student';
         vm.studentId = 0;
@@ -66,6 +67,12 @@
              function (errorMessage) {
                  notificationService.displayError(errorMessage.message);
              });
+        }
+
+        function backToStudents() {
+            var url = '/students';
+            location.path(url).search({});
+
         }
     }
 })();
