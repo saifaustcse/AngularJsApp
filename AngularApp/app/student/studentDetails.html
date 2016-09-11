@@ -15,74 +15,61 @@
             </div>
         </nav>
 
-        <div class="form-group">
-            <label class="form-label">Name</label>
-            <div>
-                <input type="text" class="form-control" placeholder="Name">
+        <div class="row form-group">
+            <div class="col-sm-4">
+                <label class="form-label">Name</label>
             </div>
-            <div>
-                <p>{{vm.student.name}}</p>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="form-label">Phone</label>
-            <div>
-                <input type="text" class="form-control" placeholder="Phone">
-            </div>
-            <div>
-                <p><a href="">{{vm.student.phone}}</a></p>
+            <div class="col-sm-8">
+                <label class="form-label">{{vm.student.name}}</label>
             </div>
         </div>
-        <div class="form-group">
-            <label class="form-label">Email</label>
-            <div>
-                <input type="email" class="form-control" placeholder="Email">
+
+        <div class="row">
+            <div class="col-sm-4">
+                <label class="form-label">Phone</label>
             </div>
-            <div>
-                <p><a href="">{{vm.student.email}}</a></p>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="form-label">Organization</label>
-            <div>
-                <input type="text" class="form-control" placeholder="Organization Name">
-            </div>
-            <div>
-                <div>{{vm.student.organization}}e</div>
+            <div class="col-sm-8">
+                <label class="form-label">{{vm.student.phone}}</label>
             </div>
         </div>
-        <div class="form-group">
-            <label class="form-label">Address</label>
-            <div>
-                <input type="email" class="form-control" placeholder="House">
-                <input type="text" class="form-control" placeholder="Street">
-                <input type="text" class="form-control" placeholder="PO box">
-                <input type="text" class="form-control" placeholder="City">
-                <input type="text" class="form-control" placeholder="ZIP code">
+
+        <div class="row form-group">
+            <div class="col-sm-4">
+                <label class="form-label">Email</label>
             </div>
-            <div>
-                <div>15/A</div>
-                <div>Road 16, Dhanmondi</div>
-                <div>Dhaka</div>
-                <div>1207</div>
+            <div class="col-sm-8">
+                <label class="form-label">{{vm.student.email}}</label>
             </div>
         </div>
-        <div class="form-group">
-            <label class="form-label">Courses</label>
-            <div>
-                <select class="form-control">
-                    <option value="">Physics</option>
-                    <option value="">Math</option>
-                    <option value="">Biology</option>
-                    <option value="">Chemistry</option>
-                </select>
-                <div>
-                    <a href="#" class="btn btn-primary" title="">Add</a>
-                </div>
+
+        <div class="row form-group">
+            <div class="col-sm-4">
+                <label class="form-label">Organization</label>
             </div>
-            <div>
-                <div>Physics</div>
-                <div>Chemistry</div>
+            <div class="col-sm-8">
+                <label class="form-label">{{vm.student.organization}}</label>
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <div class="col-sm-4">
+                <label class="form-label">Address</label>
+            </div>
+            <div class="col-sm-8">
+                <label class="form-label">15/A</label>
+                <label class="form-label">Road 16, Dhanmondi</label>
+                <label class="form-label">Dhaka</label>
+                <label class="form-label">1207</label>
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <div class="col-sm-4">
+                <label class="form-label">Courses</label>
+            </div>
+            <div class="col-sm-8">
+                <label class="form-label">Physics</label>
+                <label class="form-label">Physics</label>
             </div>
         </div>
     </section>

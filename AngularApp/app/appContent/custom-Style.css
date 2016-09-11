@@ -13,8 +13,8 @@
 
 
 [class*="col-"] {
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     background-color: #eee;
     border: 1px solid #ddd;
     background-color: rgba(86, 61, 124, .15);
@@ -34,7 +34,7 @@
 .contact-wrap {
     width: 700px;
     margin: 15px auto;
-    height: 800px;
+    height: 900px;
     position: relative;
     overflow: hidden;
 }
@@ -89,23 +89,23 @@
     background: transparent;
 }
 
-.panel-heading, .panel-body {
-    padding: 0;
+.panel-title {
+    padding: 15px 0 5px;
+    margin: 0;
 }
 
 .panel-title, .form-label {
     color: #0AF;
     text-transform: uppercase;
     display: block;
-    font-weight: normal;
-    height: 34px;
-    padding-left: 15px;
+    height: 29px;
+    padding: 5px;
 }
 
-.panel-title {
-    padding: 15px 0 5px;
-    margin: 0;
+.panel-heading, .panel-body {
+    padding: 0;
 }
+
 
 .panel-body .list-group {
     margin: 0;
