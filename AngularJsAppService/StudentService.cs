@@ -30,6 +30,37 @@ namespace AngularJsAppService
             return studentModel;
         }
 
+        public List<StudentModel> GetStudents(string searchText, int pageSize, int pageNumber, out int total)
+        {
+
+            List<Student> studentQuery = new List<Student>();
+            if (!string.IsNullOrWhiteSpace(searchText))
+            {
+                studentQuery = repository.GetStudents().Where(x => x.Id.ToString() == searchText || x.Name.ToString().Equals(searchText) || x.Name.Contains(searchText)).ToList();
+            }
+            else
+            {
+                studentQuery = repository.GetStudents().ToList();
+
+            }
+
+            total = studentQuery.Count();
+            List<Student> students = studentQuery.OrderByDescending(x => x.Id).Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
+
+            List<StudentModel> studentModel = students.Select(x => new StudentModel
+            {
+                Id = x.Id,
+                Name = x.Name,
+                Phone = x.Phone,
+                Organization = x.Organization,
+
+            }).ToList();
+
+            return studentModel;
+        }
+
+        
+
         public StudentModel  Save( StudentModel studentModel)
         {
             if (studentModel == null)

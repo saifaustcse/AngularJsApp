@@ -1,4 +1,5 @@
-﻿.nav, .pagination, .carousel, .panel-title a {
+﻿
+.nav, .pagination, .carousel, .panel-title a {
     cursor: pointer;
 }
 
@@ -33,7 +34,7 @@
 
 .contact-wrap {
     width: 700px;
-    margin: 15px auto;
+    margin: 0px auto;
     height: 900px;
     position: relative;
     overflow: hidden;

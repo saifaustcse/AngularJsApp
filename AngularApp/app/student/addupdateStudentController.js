@@ -16,12 +16,14 @@
         vm.backToStudents = backToStudents;
         vm.save = save;
         vm.saveButtonText = 'Save Student';
+        vm.Text = 'ADD STUDENT';
         vm.studentId = 0;
         vm.student = {};
 
         if (location.search().studentId != undefined && location.search().studentId != null && location.search().studentId != '') {
             vm.studentId = location.search().studentId;
             vm.saveButtonText = 'Update Student';
+            vm.Text = 'UPDATE STUDENT';
         }
 
         getStudent();

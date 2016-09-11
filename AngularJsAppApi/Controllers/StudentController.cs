@@ -21,24 +21,37 @@ namespace AngularJsAppApi.Controllers
     {
         readonly StudentService studentService = new StudentService();
 
-        [HttpGet]
-        [Route("get-students")]
-        public IHttpActionResult GetStudent()
-        {
+        //[HttpGet]
+        //[Route("get-students")]
+        //public IHttpActionResult GetStudent()
+        //{
           
-            //StudentViewModel studentViewModel = new StudentViewModel();
-            //studentViewModel.Students = studentService.GetAll();
+        //    //StudentViewModel studentViewModel = new StudentViewModel();
+        //    //studentViewModel.Students = studentService.GetAll();
 
-            var studentViewModel = new StudentViewModel {Students = studentService.GetAll()};
+        //    var studentViewModel = new StudentViewModel {Students = studentService.GetAll()};
 
-            //ResponseMessage<StudentViewModel> responseMessage = new ResponseMessage<StudentViewModel>();
-            // responseMessage.Total = total;
-            //responseMessage.Result = studentViewModel;
+        //    //ResponseMessage<StudentViewModel> responseMessage = new ResponseMessage<StudentViewModel>();
+        //    // responseMessage.Total = total;
+        //    //responseMessage.Result = studentViewModel;
 
-            var responseMessage = new ResponseMessage<StudentViewModel> {Result = studentViewModel};
-            // responseMessage.Total = total;
+        //    var responseMessage = new ResponseMessage<StudentViewModel> {Result = studentViewModel};
+        //    // responseMessage.Total = total;
 
+        //    return Ok(responseMessage);
+        //}
+
+
+        [HttpGet]
+        [Route("get-students/{pageSize:int=20}/{pageNumber:int=1}")]
+        public IHttpActionResult GetStudents(int pageSize, int pageNumber, [FromUri] string q)
+        {
+            int total = 0;
+            var studentViewModel = new StudentViewModel { Students = studentService.GetStudents(q, pageSize, pageNumber, out total) };
+
+            var responseMessage = new ResponseMessage<StudentViewModel> { Result = studentViewModel,Total=total };
             return Ok(responseMessage);
+
         }
 
         [HttpPut]

@@ -5,11 +5,11 @@
 
     var app = angular.module('Demo', [
 
-        // Angular modules      
-       'ngRoute',    
-       'ngAnimate',  
-       'ui.bootstrap'
-       //'ui.bootstrap.modal'
+        // Angular modules           
+        'ngRoute',
+        'ngAnimate',
+        'ui.bootstrap'
+        //'ui.bootstrap.modal'
        
     ]);
 

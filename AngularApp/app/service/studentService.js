@@ -6,7 +6,7 @@
     function studentService($http, dataConstants, $q) {     
         var service = {
             GetStudent: getStudent,
-            GetAllStudent: getAllStudent,
+            GetStudents: getStudents,
             DeleteStudent: deleteStudent,
             UpdateStudent: updateStudent,
             GetCourseList: getCourseList,
@@ -35,8 +35,8 @@
         }
 
         //Get All Stuents
-        function getAllStudent() {
-            var url = dataConstants.STUDENT_URL + 'get-students';
+            function getStudents(searchText, pageSize, pageNumber) {
+                var url = dataConstants.STUDENT_URL + 'get-students/' + pageSize + '/' + pageNumber + '?q=' + searchText;
             var deferred = $q.defer();
 
             $http.get(url).success(function (data) {
