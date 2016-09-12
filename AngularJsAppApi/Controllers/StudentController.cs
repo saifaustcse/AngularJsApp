@@ -21,78 +21,48 @@ namespace AngularJsAppApi.Controllers
     {
         readonly StudentService studentService = new StudentService();
 
-        //[HttpGet]
-        //[Route("get-students")]
-        //public IHttpActionResult GetStudent()
-        //{
-          
-        //    //StudentViewModel studentViewModel = new StudentViewModel();
-        //    //studentViewModel.Students = studentService.GetAll();
+        [HttpPut]
+        [Route("save")]
+        public IHttpActionResult Save([FromBody] StudentViewModel studentViewModel)
+        {
+            //StudentViewModel stdViewModel = new StudentViewModel();
+            //stdViewModel.Student = studentService.Save(studentViewModel.Student);
 
-        //    var studentViewModel = new StudentViewModel {Students = studentService.GetAll()};
+            var stdViewModel = new StudentViewModel { Student = studentService.Save(studentViewModel.Student) };
 
-        //    //ResponseMessage<StudentViewModel> responseMessage = new ResponseMessage<StudentViewModel>();
-        //    // responseMessage.Total = total;
-        //    //responseMessage.Result = studentViewModel;
+            //ResponseMessage<StudentViewModel> responseMessage = new ResponseMessage<StudentViewModel>();
+            //responseMessage.Result = stdViewModel;
 
-        //    var responseMessage = new ResponseMessage<StudentViewModel> {Result = studentViewModel};
-        //    // responseMessage.Total = total;
-
-        //    return Ok(responseMessage);
-        //}
-
+            var responseMessage = new ResponseMessage<StudentViewModel> { Result = stdViewModel };
+            return Ok(responseMessage);
+        }
 
         [HttpGet]
-        [Route("get-students/{pageSize:int=20}/{pageNumber:int=1}")]
-        public IHttpActionResult GetStudents(int pageSize, int pageNumber, [FromUri] string q)
+        [Route("get/{pageSize:int=20}/{pageNumber:int=1}")]
+        public IHttpActionResult Get(int pageSize, int pageNumber, [FromUri] string q)
         {
             int total = 0;
+
+            //StudentViewModel studentViewModel = new StudentViewModel();
+            //studentViewModel.Students = studentService.GetStudents(q, pageSize, pageNumber, out total);
+
             var studentViewModel = new StudentViewModel { Students = studentService.GetStudents(q, pageSize, pageNumber, out total) };
 
-            var responseMessage = new ResponseMessage<StudentViewModel> { Result = studentViewModel,Total=total };
+            //ResponseMessage<StudentViewModel> responseMessage = new ResponseMessage<StudentViewModel>();
+            //responseMessage.Result = studentViewModel;
+
+            var responseMessage = new ResponseMessage<StudentViewModel> { Result = studentViewModel, Total = total };
             return Ok(responseMessage);
-
-        }
-
-        [HttpPut]
-        [Route("save-student")]
-        public IHttpActionResult SaveStudent([FromBody] StudentViewModel studentViewModel)
-        {
-            //stdViewModel studentViewModel = new StudentViewModel();
-            //stdViewModel.Student = studentService.Save(studentViewModel.Student);
-            var studentResponseViewModel = new StudentViewModel { Student = studentService.Save(studentViewModel.Student) };
-
-            //ResponseMessage<StudentViewModel> message = new ResponseMessage<StudentViewModel>();
-            //message.Result = studentViewModel;
-            var message = new ResponseMessage<StudentViewModel> { Result = studentResponseViewModel };
-            return Ok(message);
-        }
-
-        [HttpPost]
-        [Route("update-student/{id}")]
-        public IHttpActionResult UpdateStudent([Range(1, int.MaxValue)]int id, [FromBody]StudentViewModel studentViewModel)
-        {
-            //stdViewModel studentViewModel = new StudentViewModel();
-            //stdViewModel.Student = studentService.Update(id, studentViewModel.Student);
-
-            var studentResponseViewModel = new StudentViewModel { Student = studentService.Update(id, studentViewModel.Student) };
-
-            //ResponseMessage<StudentViewModel> message = new ResponseMessage<StudentViewModel>();
-            //message.Result = studentViewModel;
-            var message = new ResponseMessage<StudentViewModel> { Result = studentResponseViewModel };
-            return Ok(message);
         }
 
         [HttpGet]
-        [Route("show-student/{studentId}")]
-        public IHttpActionResult ShowStudent(int studentId)
+        [Route("show/{id}")]
+        public IHttpActionResult Show(int id)
         {
-            StudentModel studentModel = studentService.Show(studentId);
-
             //StudentViewModel studentViewModel = new StudentViewModel();
-            //studentViewModel.Student = studentModel;
+            //studentViewModel.Student = studentService.Show(studentId); 
 
-            var studentViewModel = new StudentViewModel {Student = studentModel};
+            var studentViewModel = new StudentViewModel { Student = studentService.Show(id) };
 
             //ResponseMessage<StudentViewModel> responseMessage = new ResponseMessage<StudentViewModel>();
             //responseMessage.Result = studentViewModel;
@@ -102,13 +72,30 @@ namespace AngularJsAppApi.Controllers
         }
 
         [HttpDelete]
-        [Route("delete-student/{studentId}")]
-        public IHttpActionResult DeleteStudent(int studentId)
+        [Route("delete/{id}")]
+        public IHttpActionResult Delete(int id)
         {
-            // ResponseMessage<bool> message = new ResponseMessage<bool>();
-            // message.Result = studentService.Delete(studentId);
-            var message = new ResponseMessage<bool> {Result = studentService.Delete(studentId)};
-            return Ok(message);
+            // ResponseMessage<bool> responseMessage = new ResponseMessage<bool>();
+            // responseMessage.Result = studentService.Delete(studentId);
+
+            var responseMessage = new ResponseMessage<bool> { Result = studentService.Delete(id) };
+            return Ok(responseMessage);
+        }
+
+        [HttpPost]
+        [Route("update/{id}")]
+        public IHttpActionResult Update([Range(1, int.MaxValue)]int id, [FromBody]StudentViewModel studentViewModel)
+        {
+            //StudentViewModel stdViewModel = new StudentViewModel();
+            //stdViewModel.Student = studentService.Update(id, studentViewModel.Student);
+
+            var stdViewModel = new StudentViewModel { Student = studentService.Update(id, studentViewModel.Student) };
+
+            //ResponseMessage<StudentViewModel> responseMessage = new ResponseMessage<StudentViewModel>();
+            //responseMessage.Result = stdViewModel;
+
+            var responseMessage = new ResponseMessage<StudentViewModel> { Result = stdViewModel };
+            return Ok(responseMessage);
         }
     }
 }

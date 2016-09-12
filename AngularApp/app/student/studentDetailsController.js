@@ -23,7 +23,7 @@
 
         getStudent();
         function getStudent() {
-            studentService.GetStudent(vm.studentId).then(function (data) {
+            studentService.show(vm.studentId).then(function (data) {
                 vm.student = data.result.student;
             },
            function (errorMessage) {
@@ -32,7 +32,7 @@
         }
 
         function deleteStudent() {
-            studentService.DeleteStudent(vm.studentId).then(function (data) {
+            studentService.remove(vm.studentId).then(function (data) {
                 notificationService.displayInfo('student deleted!');
 
                 var url = '/students';

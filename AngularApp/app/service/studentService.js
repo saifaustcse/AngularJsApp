@@ -3,16 +3,16 @@
     'use strict';
     angular.module('Demo').service('studentService', ['$http', 'dataConstants', '$q', studentService]);
 
-    function studentService($http, dataConstants, $q) {     
+    function studentService($http, dataConstants, $q) {
+        var URL = dataConstants.STUDENT_URL;
         var service = {
-            GetStudent: getStudent,
-            GetStudents: getStudents,
-            DeleteStudent: deleteStudent,
-            UpdateStudent: updateStudent,
-            GetCourseList: getCourseList,
-            SaveStudent:saveStudent
+            save: save,
+            get: get,
+            show: show,
+            remove: remove,
+            update: update,
+            GetCourseList: getCourseList,       
         };
-
         return service;
         
         //Get Course List
@@ -21,9 +21,9 @@
             return coursesList;
         }
 
-        //insert a new student
-        function saveStudent(data) {
-            var url = dataConstants.STUDENT_URL + 'save-student';
+        //save a new student
+        function save(data) {
+            var url = URL + 'save';
             var deferred = $q.defer();
 
             $http.put(url, data).success(function (data) {
@@ -34,9 +34,9 @@
             return deferred.promise;
         }
 
-        //Get All Stuents
-            function getStudents(searchText, pageSize, pageNumber) {
-                var url = dataConstants.STUDENT_URL + 'get-students/' + pageSize + '/' + pageNumber + '?q=' + searchText;
+        //Get Stuents
+        function get(searchText, pageSize, pageNumber) {     
+            var url = URL + 'get/' + pageSize + '/' + pageNumber + '?q=' + searchText;
             var deferred = $q.defer();
 
             $http.get(url).success(function (data) {
@@ -47,9 +47,9 @@
             return deferred.promise;
         }
 
-        //Get a StudentId by id
-        function getStudent(studentId) {
-            var url = dataConstants.STUDENT_URL + 'show-student/' + studentId;
+        //Get a student by id for details or edit
+        function show(id) {
+            var url = URL + 'show/' + id;
             var deferred = $q.defer();
 
             $http.get(url).success(function (data) {
@@ -62,8 +62,8 @@
 
 
         //Delete a student by id
-        function deleteStudent(studentId) {
-            var url = dataConstants.STUDENT_URL + 'delete-student/' + studentId;
+        function remove(id) {
+            var url = URL + 'delete/' + id;
             var deferred = $q.defer();
             $http.delete(url).success(function (data) {
                 deferred.resolve(data);
@@ -73,9 +73,9 @@
             return deferred.promise;
         }
 
-        //Edit student by id
-        function updateStudent(id, data) {
-            var url = dataConstants.STUDENT_URL + 'update-student/' + id;
+        //Update student by id
+        function update(id, data) {
+            var url = URL + 'update/' + id;
             var deferred = $q.defer();
             $http.post(url, data).success(function (data) {
                 deferred.resolve(data);

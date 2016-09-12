@@ -35,7 +35,7 @@
 
         getStudents();
         function getStudents() {            
-            studentService.GetStudents(vm.searchText, vm.itemsPerPage, vm.pageNumber).then(function (data) {
+            studentService.get(vm.searchText, vm.itemsPerPage, vm.pageNumber).then(function (data) {
                  vm.students = data.result.students;
                  vm.totalItems = data.total;
             },

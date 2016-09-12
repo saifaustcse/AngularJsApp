@@ -28,7 +28,7 @@
 
         getStudent();
         function getStudent() {
-            studentService.GetStudent(vm.studentId).then(function (data) {
+            studentService.show(vm.studentId).then(function (data) {
                 vm.student = data.result;
             },
            function (errorMessage) {
@@ -46,7 +46,7 @@
         }
 
         function addStudent() {
-            studentService.SaveStudent(vm.student).then(function (data) {
+            studentService.save(vm.student).then(function (data) {
                 vm.student = data.result.student;
 
                 var url = '/studentDetails';
@@ -59,7 +59,7 @@
         }
 
         function updateStudent() {
-            studentService.UpdateStudent(vm.studentId, vm.student).then(function (data) {
+            studentService.update(vm.studentId, vm.student).then(function (data) {
                 vm.student = data.result.student;
 
                 var url = '/studentDetails';
