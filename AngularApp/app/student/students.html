@@ -22,10 +22,10 @@
         </div>
         <div class="panel-footer">
             <div ng-if="vm.students.length > 0">
-                <uib-pagination items-per-page="vm.pageSize" total-items="vm.total" ng-change="vm.pageChanged()" ng-model="vm.pageNumber" max-size="5" class="pagination" boundary-link-numbers="true"></uib-pagination>
+                <ul uib-pagination ng-model="vm.pageNumber" ng-change="vm.pageChanged()" total-items="vm.totalItems" items-per-page="vm.itemsPerPage" max-size="5" class="pagination-sm" boundary-link-numbers="true" rotate="false"></ul>
             </div>
         </div>
-
+    
         <button type="button" class="btn btn-default btn-lg btn-block" ng-click="vm.studentCreate()">
             <span class="glyphicon glyphicon-plus-sign">
                 Add new student

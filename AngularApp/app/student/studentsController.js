@@ -17,9 +17,9 @@
         vm.searchText = '';
         vm.students = {};
 
-        vm.pageSize = 5;
+        vm.itemsPerPage = 5;
         vm.pageNumber = 1;
-        vm.total = 0;
+        vm.totalItems = 0;
         vm.pageChanged = pageChanged;
 
         if (location.search().page != undefined && location.search().page != null && location.search().page != '') {
@@ -27,7 +27,7 @@
         }
 
         if (location.search().size != undefined && location.search().size != null && location.search().size != '') {
-            vm.pageSize = location.search().size;
+            vm.itemsPerPage = location.search().size;
         }
         if (location.search().searchText != undefined && location.search().searchText != null && location.search().searchText != '') {
             vm.searchText = location.search().searchText;
@@ -35,9 +35,9 @@
 
         getStudents();
         function getStudents() {            
-             studentService.GetStudents(vm.searchText, vm.pageSize, vm.pageNumber).then(function (data) {
+            studentService.GetStudents(vm.searchText, vm.itemsPerPage, vm.pageNumber).then(function (data) {
                  vm.students = data.result.students;
-                vm.total = data.total;
+                 vm.totalItems = data.total;
             },
             function (errorMessage) {
                 notificationService.displayError(errorMessage.message);
@@ -57,10 +57,10 @@
         function pageChanged() {
             var url = '/students';
             if (vm.searchText != '') {
-                location.path(url).search({ 'page': vm.pageNumber, 'size': vm.pageSize, 'searchText': vm.searchText });
+                location.path(url).search({ 'page': vm.pageNumber, 'size': vm.itemsPerPage, 'searchText': vm.searchText });
             }
             else {
-                location.path(url).search({ 'page': vm.pageNumber, 'size': vm.pageSize });
+                location.path(url).search({ 'page': vm.pageNumber, 'size': vm.itemsPerPage });
 
             }
         }
@@ -68,7 +68,7 @@
         function searchStudents() {
             vm.pageNumber = 1;
             var url = '/students';
-            location.path(url).search({ 'page': vm.pageNumber, 'size': vm.pageSize, 'searchText': vm.searchText });
+            location.path(url).search({ 'page': vm.pageNumber, 'size': vm.itemsPerPage, 'searchText': vm.searchText });
         }
     }
 })();

@@ -5,8 +5,6 @@ using System.Linq;
 using System.Transactions;
 using AngularJsAppEntityFramework;
 using AngularJsAppModel;
-using System.Data.Entity.Infrastructure;
-using System.Data.Entity.Validation;
 
 namespace AngularJsAppEF.Concrete
 {

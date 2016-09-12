@@ -7,9 +7,10 @@
 
         // Angular modules           
         'ngRoute',
+        'ngSanitize',
         'ngAnimate',
-        'ui.bootstrap'
-        //'ui.bootstrap.modal'
+        'ui.bootstrap',
+        'ui.bootstrap.modal'
        
     ]);
 
