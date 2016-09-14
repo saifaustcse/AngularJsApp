@@ -35,8 +35,8 @@
         }
 
         //Get Stuents
-        function get(searchText, pageSize, pageNumber) {     
-            var url = URL + 'get/' + pageSize + '/' + pageNumber + '?q=' + searchText;
+        function get(searchText, itemsPerPage, pageNumber) {
+            var url = URL + 'get/' + itemsPerPage + '/' + pageNumber + '?q=' + searchText;
             var deferred = $q.defer();
 
             $http.get(url).success(function (data) {

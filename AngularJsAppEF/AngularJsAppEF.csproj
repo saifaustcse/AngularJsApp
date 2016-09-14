@@ -51,9 +51,9 @@
   <ItemGroup>
     <Compile Include="AngularJsDbContext.cs" />
     <Compile Include="Interface\IRepository.cs" />
-    <Compile Include="Migrations\201608210943331_version1.cs" />
-    <Compile Include="Migrations\201608210943331_version1.Designer.cs">
-      <DependentUpon>201608210943331_version1.cs</DependentUpon>
+    <Compile Include="Migrations\201609131609235_version1.cs" />
+    <Compile Include="Migrations\201609131609235_version1.Designer.cs">
+      <DependentUpon>201609131609235_version1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -70,8 +70,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201608210943331_version1.resx">
-      <DependentUpon>201608210943331_version1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201609131609235_version1.resx">
+      <DependentUpon>201609131609235_version1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

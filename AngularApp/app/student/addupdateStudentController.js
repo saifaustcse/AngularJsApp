@@ -24,9 +24,9 @@
             vm.studentId = location.search().studentId;
             vm.saveButtonText = 'Update Student';
             vm.Text = 'UPDATE STUDENT';
+            getStudent();
         }
-
-        getStudent();
+   
         function getStudent() {
             studentService.show(vm.studentId).then(function (data) {
                 vm.student = data.result;

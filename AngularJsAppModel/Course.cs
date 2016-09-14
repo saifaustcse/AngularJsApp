@@ -10,10 +10,23 @@ namespace AngularJsAppModel
 {
     public class Course
     {
+        public Course()
+        {
+            Students = new HashSet<Student>();
+        }
+
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public int CourseId { get; set; }
+
+        public string CourseCode { get; set; }
+
         public string CourseName { get; set; }
-       
+
+        public int StudentId { get; set; }
+
+        [ForeignKey("StudentId")]
+        public virtual ICollection<Student> Students { get; set; }
+
     }
 }

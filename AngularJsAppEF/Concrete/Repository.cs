@@ -10,9 +10,7 @@ namespace AngularJsAppEF.Concrete
 {
     public class Repository
     {
-        //  readonly AngularJsDbContext angularJsDbContext = new AngularJsDbContext();
-        // AngularJsDbContext context = new AngularJsDbContext();
-
+       
         public List<Student> GetStudents()
         {
             List<Student> students;
@@ -45,7 +43,7 @@ namespace AngularJsAppEF.Concrete
             {
                 throw new Exception("Student Not Saved", ex);
             }
-            return student.Id;
+            return student.StudentId;
         }
 
         public Student ShowStudent(int studentId)
@@ -55,7 +53,7 @@ namespace AngularJsAppEF.Concrete
             {
                 using (var context = new AngularJsDbContext())
                 {
-                    student = context.Students.First(c => c.Id == studentId);
+                    student = context.Students.First(c => c.StudentId == studentId);
                     var res = context.SaveChanges();
                 }
             }
@@ -73,7 +71,7 @@ namespace AngularJsAppEF.Concrete
             {
                 using (var context = new AngularJsDbContext())
                 {
-                    Student student = context.Students.FirstOrDefault(c => c.Id == studentId);
+                    Student student = context.Students.FirstOrDefault(c => c.StudentId== studentId);
                     if (student != null)
                     {
                         context.Students.Remove(student);
@@ -90,7 +88,7 @@ namespace AngularJsAppEF.Concrete
                 throw new Exception("Student Not deleted", ex);
             }
         }
-        public void Update(Student student)
+        public void UpdateStudent(Student student)
         {
             try
             {
@@ -113,5 +111,49 @@ namespace AngularJsAppEF.Concrete
                 throw new Exception("Student not updated", ex);
             }
         }
+
+        public Address ShowAddress(int studentId)
+        {
+            Address address=new Address();
+            try
+            {
+                using (var context = new AngularJsDbContext())
+                {
+                    address = context.Addresses.FirstOrDefault(c => c.StudentId == studentId);
+                    var res = context.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error in Getting student ", ex);
+            }
+
+            return address;
+        }
+
+        public void UpdateAddress(Address address)
+        {
+            try
+            {
+                using (var context = new AngularJsDbContext())
+                {
+                    context.Configuration.AutoDetectChangesEnabled = false;
+                    context.Configuration.ValidateOnSaveEnabled = false;
+
+                    //save modified entity using new Context
+                    using (var transactionScope = new TransactionScope())
+                    {
+                        context.Entry(address).State = System.Data.Entity.EntityState.Modified;
+                        var res = context.SaveChanges();
+                        transactionScope.Complete();
+                    }
+                }
+            }
+            catch (DbUpdateException ex)
+            {
+                throw new Exception("Address not updated", ex);
+            }
+        }
+        
     }
 }

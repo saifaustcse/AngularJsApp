@@ -24,7 +24,7 @@
         getStudent();
         function getStudent() {
             studentService.show(vm.studentId).then(function (data) {
-                vm.student = data.result.student;
+                vm.student = data.result;
             },
            function (errorMessage) {
                notificationService.displayError(errorMessage.message);

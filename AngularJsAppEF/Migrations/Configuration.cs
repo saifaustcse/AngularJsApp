@@ -1,4 +1,4 @@
-namespace AngularJsAppEntityFramework.Migrations
+namespace AngularJsAppEF.Migrations
 {
     using System;
     using System.Data.Entity;

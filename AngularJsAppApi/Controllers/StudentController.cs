@@ -38,15 +38,15 @@ namespace AngularJsAppApi.Controllers
         }
 
         [HttpGet]
-        [Route("get/{pageSize:int=20}/{pageNumber:int=1}")]
-        public IHttpActionResult Get(int pageSize, int pageNumber, [FromUri] string q)
+        [Route("get/{itemsPerPage:int=20}/{pageNumber:int=1}")]
+        public IHttpActionResult Get(int itemsPerPage, int pageNumber, [FromUri] string q)
         {
             int total = 0;
 
             //StudentViewModel studentViewModel = new StudentViewModel();
             //studentViewModel.Students = studentService.GetStudents(q, pageSize, pageNumber, out total);
 
-            var studentViewModel = new StudentViewModel { Students = studentService.GetStudents(q, pageSize, pageNumber, out total) };
+            var studentViewModel = new StudentViewModel { Students = studentService.Get(q, itemsPerPage, pageNumber, out total) };
 
             //ResponseMessage<StudentViewModel> responseMessage = new ResponseMessage<StudentViewModel>();
             //responseMessage.Result = studentViewModel;

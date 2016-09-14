@@ -6,7 +6,7 @@
                     <a ng-click="vm.backToStudents()" class="navbar-brand">
                         <span class="glyphicon glyphicon-chevron-left"></span>
                     </a>
-                    <span class="navbar-brand">{{vm.student.name}}</span>
+                    <span class="navbar-brand">{{vm.student.student.name}}</span>
                 </div>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a ng-click="vm.deleteStudent()"><span class="glyphicon glyphicon-remove-circle"></span> Delete</a></li>
@@ -20,7 +20,7 @@
                 <label class="form-label">Name</label>
             </div>
             <div class="col-sm-8">
-                <label class="form-label">{{vm.student.name}}</label>
+                <label class="form-label">{{vm.student.student.name}}</label>
             </div>
         </div>
 
@@ -29,7 +29,7 @@
                 <label class="form-label">Phone</label>
             </div>
             <div class="col-sm-8">
-                <label class="form-label">{{vm.student.phone}}</label>
+                <label class="form-label">{{vm.student.student.phone}}</label>
             </div>
         </div>
 
@@ -38,7 +38,7 @@
                 <label class="form-label">Email</label>
             </div>
             <div class="col-sm-8">
-                <label class="form-label">{{vm.student.email}}</label>
+                <label class="form-label">{{vm.student.student.email}}</label>
             </div>
         </div>
 
@@ -47,7 +47,7 @@
                 <label class="form-label">Organization</label>
             </div>
             <div class="col-sm-8">
-                <label class="form-label">{{vm.student.organization}}</label>
+                <label class="form-label">{{vm.student.student.organization}}</label>
             </div>
         </div>
 
@@ -56,10 +56,11 @@
                 <label class="form-label">Address</label>
             </div>
             <div class="col-sm-8">
-                <label class="form-label">15/A</label>
-                <label class="form-label">Road 16, Dhanmondi</label>
-                <label class="form-label">Dhaka</label>
-                <label class="form-label">1207</label>
+                <label class="form-label">{{vm.student.student.address.house}}</label>
+                <label class="form-label">{{vm.student.student.address.street}}</label>
+                <label class="form-label">{{vm.student.student.address.poBox}}</label>
+                <label class="form-label">{{vm.student.student.address.city}}</label>
+                <label class="form-label">{{vm.student.student.address.zipCode}}</label>
             </div>
         </div>
 

@@ -11,17 +11,28 @@ namespace AngularJsAppModel
     [Table("Address")]
     public class Address
     {
+        //public Address()
+        //{
+        //    Students = new Student();
+        //}
+
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
-        public int StudentId { get; set; }
+        public int AddressId { get; set; }
+
         public string Street { get; set; }
+
         public string House { get; set; }
+
         public string PoBox { get; set; }
+
         public string City { get; set; }
+
         public string ZipCode { get; set; }
 
+        public int StudentId { get; set; }
+
         [ForeignKey("StudentId")]
-        public virtual Student Student { get; set; }
+        public virtual Student Students { get; set; }
     }
 }
