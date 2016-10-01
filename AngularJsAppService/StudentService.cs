@@ -13,6 +13,7 @@ namespace AngularJsAppService
     public class StudentService
     {
         private readonly Repository repository = new Repository();
+        private readonly AddessService addessService = new AddessService(); 
 
         public StudentModel Save(StudentModel studentModel)
         {
@@ -41,14 +42,14 @@ namespace AngularJsAppService
             address.ZipCode = studentModel.Address.ZipCode;
             address.City = studentModel.Address.City;
           
-            //studentId will auto take from student which is auto generate after insert student 
+            //studentId will auto take from student which will auto generate after insert student 
             //address.StudentId = student.StudentId; 
             student.Addresses.Add(address);
 
             int id = repository.SaveStudent(student);
             return Show(id);
-
         }
+
         public List<StudentModel> Get(string searchText, int itemsPerPage, int pageNumber, out int total)
         {
             List<Student> studentQuery = new List<Student>();
@@ -71,7 +72,7 @@ namespace AngularJsAppService
                 Phone = x.Phone,
                 Email = x.Email,
                 Organization = x.Organization,
-                Address = GetPrimaryAddess(x.StudentId)
+                Address = addessService.Show(x.StudentId)
 
             }).ToList();
 
@@ -95,7 +96,7 @@ namespace AngularJsAppService
                 studentModel.Phone = student.Phone;
                 studentModel.Email = student.Email;
                 studentModel.Organization = student.Organization;
-                studentModel.Address = GetPrimaryAddess(student.StudentId);
+                studentModel.Address = addessService.Show(student.StudentId);
             }
 
             return studentModel;
@@ -139,35 +140,8 @@ namespace AngularJsAppService
             student.Organization = studentModel.Organization;
             repository.UpdateStudent(student);
 
-
-            //Address address = new Address();
-            //address.Street = studentModel.Address.Street;
-            //address.House = studentModel.Address.House;
-            //address.PoBox = studentModel.Address.PoBox;
-            //address.ZipCode = studentModel.Address.ZipCode;
-            //address.City = studentModel.Address.City;
-            //address.StudentId = student.StudentId; //in time of update StudentId have to given 
-            
-            //repository.UpdateAddress(address);
-
-
+            addessService.Update(student.StudentId, studentModel);
             return Show(studentId);
-        }
-
-        public AddressModel GetPrimaryAddess(int StudentId)
-        {       
-            var addressModel = new AddressModel();
-
-            Address address = repository.ShowAddress(StudentId);
-            if (address != null)
-            {
-                addressModel.Street = address.Street;
-                addressModel.House = address.House;
-                addressModel.PoBox = address.PoBox;
-                addressModel.City = address.City;
-                addressModel.ZipCode = address.ZipCode;
-            }
-            return addressModel;
         }
 
     }
