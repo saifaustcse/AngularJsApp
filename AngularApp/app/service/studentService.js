@@ -36,6 +36,7 @@
 
         //Get Stuents
         function get(searchText, itemsPerPage, pageNumber) {
+            alert('get');
             var url = URL + 'get/' + itemsPerPage + '/' + pageNumber + '?q=' + searchText;
             var deferred = $q.defer();
 

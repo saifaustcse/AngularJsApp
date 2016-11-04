@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngularJsAppApi", "AngularJ
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngularJsAppEF", "AngularJsAppEF\AngularJsAppEF.csproj", "{8A4DE48A-E173-4A17-9EFF-04FAD42E7902}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngularJsAppModel", "AngularJsAppModel\AngularJsAppModel.csproj", "{7794158E-1CDD-408F-8712-DBC4F0739AF1}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngularJsAppService", "AngularJsAppService\AngularJsAppService.csproj", "{5CEA53E1-DC5D-46BF-9046-533A0B924B31}"
 EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "AngularApp", "http://localhost:2235", "{BA6FEB12-61B9-48D2-BE49-6F9CB15E5858}"
@@ -46,10 +44,6 @@ Global
 		{8A4DE48A-E173-4A17-9EFF-04FAD42E7902}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8A4DE48A-E173-4A17-9EFF-04FAD42E7902}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8A4DE48A-E173-4A17-9EFF-04FAD42E7902}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7794158E-1CDD-408F-8712-DBC4F0739AF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7794158E-1CDD-408F-8712-DBC4F0739AF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7794158E-1CDD-408F-8712-DBC4F0739AF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7794158E-1CDD-408F-8712-DBC4F0739AF1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5CEA53E1-DC5D-46BF-9046-533A0B924B31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5CEA53E1-DC5D-46BF-9046-533A0B924B31}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5CEA53E1-DC5D-46BF-9046-533A0B924B31}.Release|Any CPU.ActiveCfg = Release|Any CPU

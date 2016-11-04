@@ -8,8 +8,6 @@ using System.Web.Http;
 using System.Web.Http.Cors;
 using AngularJsAppApi.Models;
 using AngularJsAppService;
-using AngularJsAppService.Models;
-
 
 namespace AngularJsAppApi.Controllers
 {
@@ -19,7 +17,13 @@ namespace AngularJsAppApi.Controllers
     // [EnableCors(origins: "http://localhost:3480/", headers: "*", methods: "*")]
     public class StudentController : ApiController
     {
-        readonly StudentService studentService = new StudentService();
+       
+        private readonly StudentService studentService=new StudentService();
+
+        //public StudentController(ICampaignService campaignService)
+        //{
+        //    this.campaignService = campaignService;
+        //}
 
         [HttpPut]
         [Route("save")]

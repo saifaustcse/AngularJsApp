@@ -53,6 +53,19 @@
             <div class="col-sm-4">
                 <label class="form-label">Address</label>
             </div>
+            <div class="col-sm-6">
+                <select name="Address" class="form-control" ng-model="vm.student.student.addressTypeId" ng-options="option.value as option.text for option in vm.student.student.addressTypes">
+                    <option value="">--Select Address Type--</option>
+                </select>
+            </div>
+            <div class="col-sm-2">
+                <a ng-click="vm.assignCourse()" class="btn btn-primary" title="">Add</a>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+            </div>
             <div class="col-sm-8">
                 <div>
                     <input type="text" ng-model="vm.student.student.address.street" class="form-control" placeholder="Street">
@@ -63,21 +76,11 @@
                 </div>
             </div>
         </div>
-
         <div class="row">
             <div class="col-sm-4">
-                <label class="form-label">Courses</label>
             </div>
-            <div class="col-sm-6">
-                <select class="form-control" ng-model="vm.student.student.courses">
-                    <option value="">Physics</option>
-                    <option value="">Math</option>
-                    <option value="">Biology</option>
-                    <option value="">Chemistry</option>
-                </select>
-            </div>
-            <div class="col-sm-2">
-                <a  ng-click="vm.assignCourse()" class="btn btn-primary" title="">Add</a>
+            <div class="col-sm-8">
+
             </div>
         </div>
     </section>

@@ -52,10 +52,6 @@
       <Project>{8a4de48a-e173-4a17-9eff-04fad42e7902}</Project>
       <Name>AngularJsAppEntityFramework</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AngularJsAppModel\AngularJsAppModel.csproj">
-      <Project>{7794158e-1cdd-408f-8712-dbc4f0739af1}</Project>
-      <Name>AngularJsAppModel</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Interface\" />

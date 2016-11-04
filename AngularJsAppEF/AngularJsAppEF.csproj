@@ -50,29 +50,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AngularJsDbContext.cs" />
-    <Compile Include="Interface\IRepository.cs" />
-    <Compile Include="Migrations\201609141610589_version1.cs" />
-    <Compile Include="Migrations\201609141610589_version1.Designer.cs">
-      <DependentUpon>201609141610589_version1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Address.cs" />
+    <Compile Include="Models\AddressType.cs" />
+    <Compile Include="Models\Course.cs" />
+    <Compile Include="Models\Student.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Concrete\Repository.cs" />
+    <Compile Include="GenericRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\AngularJsAppModel\AngularJsAppModel.csproj">
-      <Project>{7794158e-1cdd-408f-8712-dbc4f0739af1}</Project>
-      <Name>AngularJsAppModel</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201609141610589_version1.resx">
-      <DependentUpon>201609141610589_version1.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
