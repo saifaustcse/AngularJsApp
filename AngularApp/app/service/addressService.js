@@ -5,8 +5,7 @@
 
     function addressService($http, dataConstants, $q) {
         var URL = dataConstants.ADDRESS_URL;
-        var service = {
-            
+        var service = {     
             getAddressType: getAddressType
         };
         return service;
@@ -15,7 +14,7 @@
         //Get Stuents
         function getAddressType() {
             alert("getAddressType");
-            var url = URL + 'getAddressType';
+            var url = URL + 'getAddressTypes';
             var deferred = $q.defer();
 
             $http.get(url).success(function (data) {

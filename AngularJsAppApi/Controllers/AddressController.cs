@@ -12,35 +12,33 @@ using AngularJsAppService;
 
 namespace AngularJsAppApi.Controllers
 {
-    public class AddressController
+    [RoutePrefix("api/address")]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
+
+    //[EnableCors(origins: "http://www.example.com", headers: "*", methods: "*")]
+    //[EnableCors(origins: "http://localhost:3480/", headers: "*", methods: "*")]
+    public class AddressController : ApiController
     {
-        [RoutePrefix("api/address")]
-        [EnableCors(origins: "*", headers: "*", methods: "*")]
-        //[EnableCors(origins: "http://www.example.com", headers: "*", methods: "*")]
-        //[EnableCors(origins: "http://localhost:3480/", headers: "*", methods: "*")]
-        public class StudentController : ApiController
+
+        private readonly AddessService addessService = new AddessService();
+
+        [HttpGet]
+        [Route("getAddressTypes")]
+        public IHttpActionResult GetAddressTypes()
         {
+            int total = 0;
 
-            private readonly AddessService studentService = new AddessService();
+            ////StudentViewModel studentViewModel = new StudentViewModel();
+            ////studentViewModel.Students = studentService.GetStudents(q, pageSize, pageNumber, out total);
 
-            [HttpGet]
-            [Route("getAddressType}")]
-            public IHttpActionResult GetAddressType()
-            {
-                int total = 0;
+            //var studentViewModel = new AddressViewModel{ Students = studentService.Get(q, itemsPerPage, pageNumber, out total) };
 
-                ////StudentViewModel studentViewModel = new StudentViewModel();
-                ////studentViewModel.Students = studentService.GetStudents(q, pageSize, pageNumber, out total);
+            ////ResponseMessage<StudentViewModel> responseMessage = new ResponseMessage<StudentViewModel>();
+            ////responseMessage.Result = studentViewModel;
 
-                //var studentViewModel = new AddressViewModel{ Students = studentService.Get(q, itemsPerPage, pageNumber, out total) };
-
-                ////ResponseMessage<StudentViewModel> responseMessage = new ResponseMessage<StudentViewModel>();
-                ////responseMessage.Result = studentViewModel;
-
-                //var responseMessage = new ResponseMessage<StudentViewModel> { Result = studentViewModel, Total = total };
-                //return Ok(responseMessage);
-                return Ok();
-            }
+            //var responseMessage = new ResponseMessage<StudentViewModel> { Result = studentViewModel, Total = total };
+            //return Ok(responseMessage);
+            return Ok();
         }
     }
 }

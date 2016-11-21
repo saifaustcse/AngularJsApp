@@ -5,9 +5,9 @@
     var controllerId = 'addupdateStudentController';
     angular
           .module('Demo')
-          .controller(controllerId, ['addressService','studentService', 'notificationService', '$location', addupdateStudentController]);
+          .controller(controllerId, ['addressService', 'studentService', 'notificationService', '$location', addupdateStudentController]);
 
-    function addupdateStudentController(addressService,studentService, notificationService, location) {
+    function addupdateStudentController(addressService, studentService, notificationService, location) {
 
         /* jshint validthis:true */
         var vm = this;
@@ -26,8 +26,11 @@
             vm.Text = 'UPDATE STUDENT';
             getStudent();
         }
+        else {
+            getAddressType();
+        }
 
-        getAddressType();
+
 
         function getAddressType() {
             addressService.getAddressType().then(function (data) {

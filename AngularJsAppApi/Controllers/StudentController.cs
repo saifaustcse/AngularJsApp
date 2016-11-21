@@ -13,6 +13,7 @@ namespace AngularJsAppApi.Controllers
 {
     [RoutePrefix("api/students")]
     [EnableCors(origins: "*", headers: "*", methods: "*")]
+    
     // [EnableCors(origins: "http://www.example.com", headers: "*", methods: "*")]
     // [EnableCors(origins: "http://localhost:3480/", headers: "*", methods: "*")]
     public class StudentController : ApiController

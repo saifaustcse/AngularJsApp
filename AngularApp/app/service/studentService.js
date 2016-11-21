@@ -36,11 +36,10 @@
 
         //Get Stuents
         function get(searchText, itemsPerPage, pageNumber) {
-            alert('get');
             var url = URL + 'get/' + itemsPerPage + '/' + pageNumber + '?q=' + searchText;
             var deferred = $q.defer();
 
-            $http.get(url).success(function (data) {
+            $http.get(url).success(function (data) {        
                 deferred.resolve(data);
             }).error(function (error) {
                 deferred.reject(error);
