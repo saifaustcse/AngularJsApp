@@ -11,7 +11,7 @@
 
         /* jshint validthis:true */
         var vm = this;
-        vm.studentId = 0;
+        //vm.studentId = 0;
         vm.student = {};
         vm.backToStudents = backToStudents;
         vm.deleteStudent = deleteStudent;
@@ -19,9 +19,10 @@
 
         if (location.search().studentId != undefined && location.search().studentId != null && location.search().studentId != '') {
             vm.studentId = location.search().studentId;
+            getStudent();
         }
 
-        getStudent();
+       
         function getStudent() {
             studentService.show(vm.studentId).then(function (data) {
                 vm.student = data.result;

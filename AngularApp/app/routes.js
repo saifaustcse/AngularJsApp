@@ -55,8 +55,8 @@
              {
                  url: '/student-create',
                  config: {
-                     templateUrl: 'app/student/addupdateStudent.html',
-                     controller: 'addupdateStudentController',
+                     templateUrl: 'app/student/studentAddUdate.html',
+                     controller: 'studentAddUdateController',
                      controllerAs: 'vm',
                      title: 'studentAddUpdate'
                  }
@@ -68,24 +68,6 @@
                      controller: 'studentDetailsController',
                      controllerAs: 'vm',
                      title: 'studentDetail'
-                 }
-             },
-             {
-                 url: '/customers',
-                 config: {
-                     templateUrl: 'app/customers/customers.html',
-                     controller: 'customersController',
-                     controllerAs: 'vm',
-                     title: 'Customer'
-                 }
-             },
-             {
-                 url: '/customer-create',
-                 config: {
-                     templateUrl: 'app/customers/customerAdd.html',
-                     controller: 'customerAddController',
-                     controllerAs: 'vm',
-                     title: 'Customer'
                  }
              }
         ];

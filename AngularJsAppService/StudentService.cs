@@ -57,7 +57,7 @@ namespace AngularJsAppService
             };
 
             Address address = new Address();
-            if (studentModel.Address != null)
+            if (studentModel.Address != null && studentModel.Address.AddressTypeId>0)
             {
                 //studentId will auto take from student which will auto generate after insert student 
                 //address.StudentId = student.StudentId; 
@@ -66,7 +66,7 @@ namespace AngularJsAppService
                 address.PoBox = studentModel.Address.PoBox;
                 address.ZipCode = studentModel.Address.ZipCode;
                 address.City = studentModel.Address.City;
-                address.AddressTypeId = 1;
+                address.AddressTypeId = studentModel.Address.AddressTypeId;
             }
 
             student.Addresses.Add(address);
@@ -100,7 +100,6 @@ namespace AngularJsAppService
 
             total = studentQuery.Count();
             List<Student> students = studentQuery.OrderByDescending(x => x.StudentId).Skip((pageNumber - 1) * itemsPerPage).Take(itemsPerPage).ToList();
-            //List<AddressType> addressTypes = addressTypeRepository.All().ToList();
 
             List<StudentModel> studentModel = students.Select(x => new StudentModel
             {
@@ -110,8 +109,6 @@ namespace AngularJsAppService
                 Email = x.Email,
                 Organization = x.Organization,
                 Address = addessService.Show(x.StudentId),
-                //AddressTypes = addressTypes.Select(a => new SelectModel { Value = a.AddressTypeId, Text = a.Value }).ToList()
-
             }).ToList();
           
             return studentModel;
@@ -190,22 +187,26 @@ namespace AngularJsAppService
             student.Name = studentModel.Name;
             student.Phone = studentModel.Phone;
             student.Organization = studentModel.Organization;
+            student.Email = studentModel.Email;
 
             Address address = new Address();
             if (studentModel.Address != null)
             {
                 //studentId will auto take from student which will auto generate after insert student 
-                //address.StudentId = student.StudentId; 
+                //address.StudentId = studentModel.Id;
+                address.StudentId = student.StudentId;
+                address.StudentId = studentModel.Id;
                 address.Street = studentModel.Address.Street;
                 address.House = studentModel.Address.House;
                 address.PoBox = studentModel.Address.PoBox;
                 address.ZipCode = studentModel.Address.ZipCode;
                 address.City = studentModel.Address.City;
+                address.AddressId = studentModel.Address.AddressTypeId;
             }
 
             try
             {
-                studentRepository.Save(student);
+               var result= studentRepository.Save(student);
             }
             catch (Exception ex)
             {
