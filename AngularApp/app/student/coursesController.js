@@ -1,7 +1,7 @@
 ﻿
 (function () {
     'use strict';
-    
+
     var controllerId = 'coursesController';
     angular
        .module('Demo')
@@ -11,15 +11,14 @@
 
     function coursesController(studentService) {
 
-        var coursesCtr = this;
-        //coursesCtr.coursesList = ["C#", "VB.NET", "ASP.NET", "SQL Server"];
+        var vm = this;
+        //vm.coursesList = ["C#", "VB.NET", "ASP.NET", "SQL Server"];
 
         getCourseList();
         function getCourseList() {
-            coursesCtr.coursesList = studentService.GetCourseList();
+            vm.coursesList = studentService.GetCourseList();
         }
 
     }
 })();
 
-   

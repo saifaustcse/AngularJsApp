@@ -4,124 +4,217 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AngularJsAppEF.Concrete;
-using AngularJsAppModel;
+using AngularJsAppEF;
+using AngularJsAppEF.Models;
 using AngularJsAppService.Models;
 
 namespace AngularJsAppService
 {
     public class StudentService
     {
-        private readonly Repository repository = new Repository();
+        private readonly GenericRepository<Student> studentRepository = new GenericRepository<Student>();
+        private readonly GenericRepository<AddressType> addressTypeRepository = new GenericRepository<AddressType>();
 
-        public List<StudentModel> GetAll()
-        {
-            List<Student> students = repository.GetStudents().ToList();
+        private readonly AddessService addessService = new AddessService();
+      
+        // private readonly IRepository<Student> studentRepository;
+        // private readonly IRepository<Address> addessRepository;
 
-            List<StudentModel> studentModel = students.Select(x => new StudentModel
-            {
-                Id = x.Id,
-                Name = x.Name,
-                Phone = x.Phone,
-                Organization = x.Organization,
+        // private readonly IEmailService emailService;
 
-            }).ToList();
+        //public StudentService()
+        //{
 
-            return studentModel;
-        }
+        //}
+        //public StudentService(IRepository<Student> studentRepository, IRepository<Address> addessRepository):this()
+        //{
+        //    this.studentRepository = studentRepository;
+        //    this.addessRepository = addessRepository;
 
-        public StudentModel  Save( StudentModel studentModel)
+        //  //  this.emailService = emailService;
+        //}
+
+        //   private readonly AddessService addessService = new AddessService(); 
+
+        public StudentModel Save(StudentModel studentModel)
         {
             if (studentModel == null)
             {
                 throw new Exception("Student data missing");
             }
 
-            //server side validation rule1
-            //if (studentModel.Name == null || studentModel.Name == "" || studentModel.Phone == "" || studentModel.Phone == null)
-            //{
-            //    throw new Exception("All required field must be entered");
-            //}
-
-            //server side validation rule2
-            //if (string.IsNullOrEmpty(studentModel.Name) || string.IsNullOrEmpty(studentModel.Phone))
-            //{
-            //    throw new Exception("All required field must be entered");
-            //}
-
             if (string.IsNullOrWhiteSpace(studentModel.Name) || string.IsNullOrWhiteSpace(studentModel.Phone))
             {
                 throw new Exception("All required field must be entered");
             }
 
-            var students = new Student
+            var student = new Student
             {
                 Name = studentModel.Name,
                 Phone = studentModel.Phone,
+                Email = studentModel.Email,
                 Organization = studentModel.Organization
             };
 
-            int id=  repository.SaveStudent(students);
-            return Show(id);
-
-        }
-
-        public bool Delete(int studentId)
-        {
-            if (studentId == 0 || studentId<1)
+            Address address = new Address();
+            if (studentModel.Address != null && studentModel.Address.AddressTypeId>0)
             {
-                throw new Exception("Student id not valid");
+                //studentId will auto take from student which will auto generate after insert student 
+                //address.StudentId = student.StudentId; 
+                address.Street = studentModel.Address.Street;
+                address.House = studentModel.Address.House;
+                address.PoBox = studentModel.Address.PoBox;
+                address.ZipCode = studentModel.Address.ZipCode;
+                address.City = studentModel.Address.City;
+                address.AddressTypeId = studentModel.Address.AddressTypeId;
             }
 
-            repository.DeleteStudent(studentId);
-            return true;
+            student.Addresses.Add(address);
+
+            try
+            {
+                int result = studentRepository.Save(student);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Student not saved succssfully" + ex);
+            }
+
+            return Show(student.StudentId);
+        }
+
+        public List<StudentModel> Get(string searchText, int itemsPerPage, int pageNumber, out int total)
+        {
+
+            List<Student> studentQuery = new List<Student>();
+
+            //server side validation
+            if (!string.IsNullOrWhiteSpace(searchText))
+            {
+                studentQuery = studentRepository.AsQueryable().Where(x => x.StudentId.ToString() == searchText || x.Name.ToString().Equals(searchText) || x.Name.Contains(searchText)).ToList();
+            }
+            else
+            {
+                studentQuery = studentRepository.AsQueryable().ToList();
+            }
+
+            total = studentQuery.Count();
+            List<Student> students = studentQuery.OrderByDescending(x => x.StudentId).Skip((pageNumber - 1) * itemsPerPage).Take(itemsPerPage).ToList();
+
+            List<StudentModel> studentModel = students.Select(x => new StudentModel
+            {
+                Id = x.StudentId,
+                Name = x.Name,
+                Phone = x.Phone,
+                Email = x.Email,
+                Organization = x.Organization,
+                Address = addessService.Show(x.StudentId),
+            }).ToList();
+          
+            return studentModel;
         }
 
         public StudentModel Show(int studentId)
         {
-            var studentModel = new StudentModel();
-            if (studentId > 0)
+            if (string.IsNullOrWhiteSpace(Convert.ToString(studentId)) || studentId < 1)
             {
-                Student student = repository.ShowStudent(studentId);
-                if (student != null)
-                {
-                    studentModel.Id = student.Id;
-                    studentModel.Name = student.Name;
-                    studentModel.Phone = student.Phone;
-                    studentModel.Organization = student.Organization;
-                }
+                throw new Exception("Student id not valid");
             }
+
+            var studentModel = new StudentModel();
+
+            Student student = studentRepository.FindOne(x => x.StudentId == studentId);
+            if (student != null)
+            {
+                studentModel.Id = student.StudentId;
+                studentModel.Name = student.Name;
+                studentModel.Phone = student.Phone;
+                studentModel.Email = student.Email;
+                studentModel.Organization = student.Organization;
+                studentModel.Address = addessService.Show(studentId);
+            }
+            List<AddressType> addressTypes = addressTypeRepository.All().ToList();
+            studentModel.Address.AddressTypes = addressTypes.Select(a => new SelectModel { Value = a.AddressTypeId, Text = a.Value }).ToList();
+
             return studentModel;
         }
 
-        public StudentModel Update(int id, StudentModel studentModel)
+
+        public bool Delete(int studentId)
         {
-            if (id == 0 || studentModel == null)
+            //server side validation
+            if (string.IsNullOrWhiteSpace(Convert.ToString(studentId)) || studentId < 1)
             {
-                throw new Exception("Student data missing");
+                throw new Exception("Student id not valid");
             }
 
-            //server side validation rule latest
+            try
+            {
+                studentRepository.Delete(x => x.StudentId == studentId);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Student not deleted succssfully" + ex);
+            }
+
+            return true;
+        }
+
+
+        public StudentModel Update(int studentId, StudentModel studentModel)
+        {
+            //server side validation
+            if (string.IsNullOrWhiteSpace(Convert.ToString(studentId)) || studentId < 1)
+            {
+                throw new Exception("Student id not valid");
+            }
+
+            //server side validation
             if (string.IsNullOrWhiteSpace(studentModel.Name) || string.IsNullOrWhiteSpace(studentModel.Phone))
             {
                 throw new Exception("All required field must be entered");
             }
 
-            Student student = repository.ShowStudent(id);
+            Student student = studentRepository.FindOne(x => x.StudentId == studentId);
 
+            //server side validation
             if (student == null)
             {
                 throw new Exception("student not found");
             }
 
-            student.Id = studentModel.Id;
+            student.StudentId = studentModel.Id;
             student.Name = studentModel.Name;
             student.Phone = studentModel.Phone;
             student.Organization = studentModel.Organization;
+            student.Email = studentModel.Email;
 
-            repository.Update(student);
-            return Show(id);
+            Address address = new Address();
+            if (studentModel.Address != null)
+            {
+                //studentId will auto take from student which will auto generate after insert student 
+                //address.StudentId = studentModel.Id;
+                address.StudentId = student.StudentId;
+                address.StudentId = studentModel.Id;
+                address.Street = studentModel.Address.Street;
+                address.House = studentModel.Address.House;
+                address.PoBox = studentModel.Address.PoBox;
+                address.ZipCode = studentModel.Address.ZipCode;
+                address.City = studentModel.Address.City;
+                address.AddressId = studentModel.Address.AddressTypeId;
+            }
+
+            try
+            {
+               var result= studentRepository.Save(student);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Student not updated succssfully" + ex);
+            }
+
+            //addessService.Update(student.StudentId, studentModel);
+            return Show(studentId);
         }
-
     }
 }

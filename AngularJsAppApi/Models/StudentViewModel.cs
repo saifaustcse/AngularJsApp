@@ -10,5 +10,6 @@ namespace AngularJsAppApi.Models
     {
         public StudentModel Student { get; set; }
         public List<StudentModel> Students { get; set; }
+
     }
 }

@@ -11,18 +11,25 @@ namespace AngularJsAppService.Models
         public StudentModel()
         {
             Address = new AddressModel();
-            Courses = new List<SelectModel>();
+           // Addresses = new List<SelectModel>();
+           // AddressTypes = new List<SelectModel>();
+           //  Courses = new List<SelectModel>();
         }
        
         public int Id { get; set; }
         public string Name { get; set; }
         public string Phone { get; set; }
-        public string Organization { get; set; }   
+        public string Email { get; set; }
+        public string Organization { get; set; }
 
+        //  public int AddressTypeId { get; set; }
         public AddressModel Address { get; set; }
-        public List<SelectModel> Courses { get; set; }
-      
-
         
+        // public List<SelectModel> Addresses { get; set; }
+        // public List<SelectModel> Courses { get; set; }
+         // public List<SelectModel> AddressTypes { get; set; }
+
+
+
     }
 }

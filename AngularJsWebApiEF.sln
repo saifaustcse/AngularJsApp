@@ -1,13 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngularJsAppApi", "AngularJsAppApi\AngularJsAppApi.csproj", "{1465DC02-6F26-4E3E-B57A-4145914C2072}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngularJsAppEF", "AngularJsAppEF\AngularJsAppEF.csproj", "{8A4DE48A-E173-4A17-9EFF-04FAD42E7902}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngularJsAppModel", "AngularJsAppModel\AngularJsAppModel.csproj", "{7794158E-1CDD-408F-8712-DBC4F0739AF1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngularJsAppService", "AngularJsAppService\AngularJsAppService.csproj", "{5CEA53E1-DC5D-46BF-9046-533A0B924B31}"
 EndProject
@@ -46,10 +44,6 @@ Global
 		{8A4DE48A-E173-4A17-9EFF-04FAD42E7902}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8A4DE48A-E173-4A17-9EFF-04FAD42E7902}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8A4DE48A-E173-4A17-9EFF-04FAD42E7902}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7794158E-1CDD-408F-8712-DBC4F0739AF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7794158E-1CDD-408F-8712-DBC4F0739AF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7794158E-1CDD-408F-8712-DBC4F0739AF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7794158E-1CDD-408F-8712-DBC4F0739AF1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5CEA53E1-DC5D-46BF-9046-533A0B924B31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5CEA53E1-DC5D-46BF-9046-533A0B924B31}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5CEA53E1-DC5D-46BF-9046-533A0B924B31}.Release|Any CPU.ActiveCfg = Release|Any CPU

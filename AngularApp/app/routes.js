@@ -30,7 +30,7 @@
                 config: {
                     templateUrl: 'app/home/home.html',
                     controller: 'homeController',
-                    controllerAs: 'homeCtr',
+                    controllerAs: 'vm',
                     title: 'home'
 
                 }
@@ -39,7 +39,7 @@
                 config: {
                     templateUrl: 'app/student/courses.html',
                     controller: 'coursesController',
-                    controllerAs: 'coursesCtr',
+                    controllerAs: 'vm',
                     title: 'courses'
                 }
             },
@@ -48,16 +48,16 @@
                  config: {
                      templateUrl: 'app/student/students.html',
                      controller: 'studentsController',
-                     controllerAs: 'studentsCtr',
+                     controllerAs: 'vm',
                      title: 'students'
                  }
              },
              {
                  url: '/student-create',
                  config: {
-                     templateUrl: 'app/student/addupdateStudent.html',
-                     controller: 'addupdateStudentController',
-                     controllerAs: 'addupdateStudentCtr',
+                     templateUrl: 'app/student/studentAddUdate.html',
+                     controller: 'studentAddUdateController',
+                     controllerAs: 'vm',
                      title: 'studentAddUpdate'
                  }
              },
@@ -66,35 +66,8 @@
                  config: {
                      templateUrl: 'app/student/studentDetails.html',
                      controller: 'studentDetailsController',
-                     controllerAs: 'studentDetailsCtr',
+                     controllerAs: 'vm',
                      title: 'studentDetail'
-                 }
-             },
-             {
-                 url: '/studentSearch',
-                 config: {
-                     templateUrl: 'app/student/searchStudent.html',
-                     controller: 'searchStudentController',
-                     controllerAs: 'searchStudentCtr',
-                     title: 'studentSearch'
-                 }
-             },
-             {
-                 url: '/customers',
-                 config: {
-                     templateUrl: 'app/customers/customers.html',
-                     controller: 'customersController',
-                     controllerAs: 'vm',
-                     title: 'Customer'
-                 }
-             },
-             {
-                 url: '/customer-create',
-                 config: {
-                     templateUrl: 'app/customers/customerAdd.html',
-                     controller: 'customerAddController',
-                     controllerAs: 'vm',
-                     title: 'Customer'
                  }
              }
         ];
