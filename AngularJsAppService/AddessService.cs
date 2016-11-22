@@ -12,6 +12,19 @@ namespace AngularJsAppService
     public class AddessService
     {
         private readonly GenericRepository<Address> addressRepository = new GenericRepository<Address>();
+        private readonly GenericRepository<AddressType> addressTypeRepository = new GenericRepository<AddressType>();
+
+
+        public AddressModel GetAddressTypes()
+        {
+
+            AddressModel addressModel = new AddressModel();
+           
+            List<AddressType> addressTypes = addressTypeRepository.All().ToList();
+            addressModel.AddressTypes = addressTypes.Select(a => new SelectModel { Value = a.AddressTypeId, Text = a.Value }).ToList();
+
+            return addressModel;
+        }
 
         public AddressModel Show(int studentId)
         {
@@ -24,6 +37,8 @@ namespace AngularJsAppService
                 addressModel.PoBox = address.PoBox;
                 addressModel.City = address.City;
                 addressModel.ZipCode = address.ZipCode;
+                addressModel.AddressTypeId = address.AddressTypeId;
+                addressModel.StudentId = address.StudentId;
             }
             return addressModel;
         }
@@ -47,6 +62,7 @@ namespace AngularJsAppService
             address.PoBox = studentModel.Address.PoBox;
             address.ZipCode = studentModel.Address.ZipCode;
             address.City = studentModel.Address.City;
+            address.AddressTypeId = studentModel.Address.AddressTypeId;
             address.StudentId = studentId; //in time of update StudentId have to given 
 
             try
@@ -60,5 +76,27 @@ namespace AngularJsAppService
          
             return Show(studentId);
         }
+
+        public AddressModel loadStudentAddress(int studentId,int addressTypeId)
+        {
+            var addressModel = new AddressModel();
+            Address address = addressRepository.FindOne(x => x.StudentId == studentId && x.AddressTypeId== addressTypeId);
+            if (address != null)
+            {
+                addressModel.Street = address.Street;
+                addressModel.House = address.House;
+                addressModel.PoBox = address.PoBox;
+                addressModel.City = address.City;
+                addressModel.ZipCode = address.ZipCode;
+                addressModel.AddressTypeId = address.AddressTypeId;
+                addressModel.StudentId = address.StudentId;
+            }
+            List<AddressType> addressTypes = addressTypeRepository.All().ToList();
+            addressModel.AddressTypes = addressTypes.Select(a => new SelectModel { Value = a.AddressTypeId, Text = a.Value }).ToList();
+
+            return addressModel;
+        }
+        
+
     }
 }

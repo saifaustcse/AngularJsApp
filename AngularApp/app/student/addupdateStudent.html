@@ -11,7 +11,7 @@
                 </ul>
             </div>
         </nav>
-
+        <pre>{{vm.student.student}}</pre>
         <div class="row">
             <div class="col-sm-4">
                 <label class="form-label">Name</label>
@@ -54,7 +54,7 @@
                 <label class="form-label">Address</label>
             </div>
             <div class="col-sm-6">
-                <select name="Address" class="form-control" ng-model="vm.student.student.addressTypeId" ng-options="option.value as option.text for option in vm.student.student.addressTypes">
+                <select name="Address" class="form-control" ng-model="vm.student.student.address.addressTypeId" ng-options="option.value as option.text for option in vm.addressTypes" ng-change="vm.loadStudentAddress()">
                     <option value="">--Select Address Type--</option>
                 </select>
             </div>

@@ -69,7 +69,7 @@ namespace AngularJsAppService
                 address.AddressTypeId = 1;
             }
 
-            student.AddressList.Add(address);
+            student.Addresses.Add(address);
 
             try
             {
@@ -134,10 +134,10 @@ namespace AngularJsAppService
                 studentModel.Phone = student.Phone;
                 studentModel.Email = student.Email;
                 studentModel.Organization = student.Organization;
-                studentModel.Address = addessService.Show(student.StudentId);
+                studentModel.Address = addessService.Show(studentId);
             }
             List<AddressType> addressTypes = addressTypeRepository.All().ToList();
-            studentModel.AddressTypes = addressTypes.Select(a => new SelectModel { Value = a.AddressTypeId, Text = a.Value }).ToList();
+            studentModel.Address.AddressTypes = addressTypes.Select(a => new SelectModel { Value = a.AddressTypeId, Text = a.Value }).ToList();
 
             return studentModel;
         }

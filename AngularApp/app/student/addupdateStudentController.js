@@ -17,7 +17,10 @@
         vm.save = save;
         vm.saveButtonText = 'Save Student';
         vm.Text = 'ADD STUDENT';
-        vm.studentId = 0;
+        vm.loadStudentAddress = loadStudentAddress;
+        //vm.studentId = 0;//No student
+        //vm.addressTypeId = 1;//Default
+        vm.addressTypes = {};
         vm.student = {};
 
         if (location.search().studentId != undefined && location.search().studentId != null && location.search().studentId != '') {
@@ -30,25 +33,42 @@
             getAddressType();
         }
 
-
-
         function getAddressType() {
             addressService.getAddressType().then(function (data) {
-                vm.student.addressTypes = data.result;
+                vm.addressTypes = data.result.address.addressTypes;
             },
            function (errorMessage) {
-               vm.displayError(errorMessage.message);
+               notificationService.displayError(errorMessage.message);
            });
         }
 
         function getStudent() {
+
             studentService.show(vm.studentId).then(function (data) {
                 vm.student = data.result;
+                vm.addressTypes = data.result.student.address.addressTypes;
             },
-           function (errorMessage) {
-               vm.displayError(errorMessage.message);
-           });
+        function (errorMessage) {
+            notificationService.displayError(errorMessage.message);
+        });
         }
+
+        function loadStudentAddress() {
+
+            if (vm.student.student.id != undefined && vm.student.student.id != null && vm.student.student.id != '') {
+                addressService.loadStudentAddress(vm.student.student.id, vm.student.student.address.addressTypeId).then(function (data) {
+                    vm.student.student.address = data.result.address;
+                },
+               function (errorMessage) {
+                   notificationService.displayError(errorMessage.message);
+               });
+            }
+            else {
+                notificationService.displayError("Student not found");
+
+            }
+        }
+
 
         function save() {
             if (vm.studentId > 0) {
@@ -64,7 +84,7 @@
                 vm.student = data.result.student;
 
                 var url = '/studentDetails';
-                location.path(url).search({ 'studentId': vm.student.id });
+                location.path(url).search({ 'studentId': vm.student.student.id });
                 notificationService.displaySuccess('Student saved');
             },
             function (errorMessage) {
@@ -77,7 +97,7 @@
                 vm.student = data.result.student;
 
                 var url = '/studentDetails';
-                location.path(url).search({ 'studentId': vm.student.id });
+                location.path(url).search({ 'studentId': vm.student.student.id });
                 notificationService.displaySuccess('Student updated');
             },
              function (errorMessage) {

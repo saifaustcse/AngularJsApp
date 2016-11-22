@@ -26,19 +26,33 @@ namespace AngularJsAppApi.Controllers
         [Route("getAddressTypes")]
         public IHttpActionResult GetAddressTypes()
         {
-            int total = 0;
+            //StudentViewModel studentViewModel = new StudentViewModel();
+            //studentViewModel.Student = studentService.Show(studentId); 
 
-            ////StudentViewModel studentViewModel = new StudentViewModel();
-            ////studentViewModel.Students = studentService.GetStudents(q, pageSize, pageNumber, out total);
+            var addressViewModel = new AddressViewModel { Address = addessService.GetAddressTypes() };
 
-            //var studentViewModel = new AddressViewModel{ Students = studentService.Get(q, itemsPerPage, pageNumber, out total) };
+            //ResponseMessage<StudentViewModel> responseMessage = new ResponseMessage<StudentViewModel>();
+            //responseMessage.Result = studentViewModel;
 
-            ////ResponseMessage<StudentViewModel> responseMessage = new ResponseMessage<StudentViewModel>();
-            ////responseMessage.Result = studentViewModel;
-
-            //var responseMessage = new ResponseMessage<StudentViewModel> { Result = studentViewModel, Total = total };
-            //return Ok(responseMessage);
-            return Ok();
+            var responseMessage = new ResponseMessage<AddressViewModel> { Result = addressViewModel };
+            return Ok(responseMessage);
         }
+
+        [HttpGet]
+        [Route("loadStudentAddress/{studentId}/{addressTypeId}")]
+        public IHttpActionResult loadStudentAddress(int studentId, int addressTypeId)
+        {
+            //StudentViewModel studentViewModel = new StudentViewModel();
+            //studentViewModel.Student = studentService.Show(studentId); 
+
+            var addressViewModel = new AddressViewModel { Address = addessService.loadStudentAddress(studentId,addressTypeId) };
+
+            //ResponseMessage<StudentViewModel> responseMessage = new ResponseMessage<StudentViewModel>();
+            //responseMessage.Result = studentViewModel;
+
+            var responseMessage = new ResponseMessage<AddressViewModel> { Result = addressViewModel };
+            return Ok(responseMessage);
+        }
+        
     }
 }

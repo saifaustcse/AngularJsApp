@@ -12,7 +12,7 @@ namespace AngularJsAppEF.Models
     {
         public Student()
         {
-            AddressList = new HashSet<Address>();          
+            Addresses = new HashSet<Address>();          
         }
 
         [Key]
@@ -28,7 +28,7 @@ namespace AngularJsAppEF.Models
         public string Organization { get; set; }
 
 
-        public virtual ICollection<Address> AddressList { get; set; }
+        public virtual ICollection<Address> Addresses { get; set; }
 
     }
 }

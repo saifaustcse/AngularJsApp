@@ -13,7 +13,7 @@ namespace AngularJsAppEF.Models
     {    
         public AddressType()
         {
-            AddressList = new HashSet<Address>();
+            Addresses = new HashSet<Address>();
         }
 
         [Key]
@@ -24,6 +24,6 @@ namespace AngularJsAppEF.Models
 
         public string Text { set; get; }
      
-        public virtual ICollection<Address> AddressList { get; set; }
+        public virtual ICollection<Address> Addresses { get; set; }
     }
 }

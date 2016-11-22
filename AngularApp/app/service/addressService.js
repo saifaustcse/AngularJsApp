@@ -6,15 +6,25 @@
     function addressService($http, dataConstants, $q) {
         var URL = dataConstants.ADDRESS_URL;
         var service = {     
-            getAddressType: getAddressType
+            getAddressType: getAddressType,
+            loadStudentAddress: loadStudentAddress
         };
         return service;
 
-
-        //Get Stuents
         function getAddressType() {
-            alert("getAddressType");
             var url = URL + 'getAddressTypes';
+            var deferred = $q.defer();
+
+            $http.get(url).success(function (data) {
+                deferred.resolve(data);
+            }).error(function (error) {
+                deferred.reject(error);
+            });
+            return deferred.promise;
+        }
+
+        function loadStudentAddress(studentId, addressTypeId) {
+            var url = URL + 'loadStudentAddress/' + studentId + '/' + addressTypeId;
             var deferred = $q.defer();
 
             $http.get(url).success(function (data) {
