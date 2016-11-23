@@ -1,11 +1,13 @@
 Demo Projet of University Management system/Student managemnet System
 
 Task List:
+
 1. Crud operation (Insert,update,delete)
 2. Search 
 3. pagination
 
 Front end:
+
 1. AngularJs
 2. AngularUI
 3. Jquery
@@ -14,7 +16,9 @@ Front end:
 6. css
 
 Back end:
+
 1. Asp.net WebApi2
+
 2. entity framework code first
    One to one relationship
    One to mamy relationship
