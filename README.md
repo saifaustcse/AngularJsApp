@@ -5,8 +5,7 @@ Task List:
 1. Crud operation (Insert,update,delete)
 2. Search 
 3. pagination
-4. Single page application using AngularJS
-5. Ui validation using AngularUi
+4. Single page application using AngularJS and AngularUi
 
 Front end:
 
@@ -20,14 +19,12 @@ Front end:
 Back end:
 
 1. Asp.net WebApi2
-
 2. entity framework code first
    (I) One to one relationship
    (ii) One to mamy relationship
    (iii) Many to many relationship
-   
 3. Generic Repository
 
 Dababase:
 
-1.Sql Server 
+1. Sql Server 
