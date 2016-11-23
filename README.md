@@ -5,7 +5,7 @@ Task List:
 2. Search 
 3. pagination
 
-Techonlogies used in Front end:
+Front end:
 1. AngularJs
 2. AngularUI
 3. Jquery
@@ -13,9 +13,13 @@ Techonlogies used in Front end:
 5. html
 6. css
 
-Techonlogies used Back end:
+Back end:
 1. Asp.net WebApi2
 2. entity framework code first
+   One to one relationship
+   One to mamy relationship
+   Many to many relationship
+   
 3. Generic Repository
 
 Dababase:
