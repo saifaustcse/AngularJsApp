@@ -5,6 +5,8 @@ Task List:
 1. Crud operation (Insert,update,delete)
 2. Search 
 3. pagination
+4. Single page application using AngularJS
+5. Ui validation using AngularUi
 
 Front end:
 
