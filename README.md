@@ -20,11 +20,12 @@ Back end:
 1. Asp.net WebApi2
 
 2. entity framework code first
-   One to one relationship
-   One to mamy relationship
-   Many to many relationship
+   (I) One to one relationship
+   (ii) One to mamy relationship
+   (iii) Many to many relationship
    
 3. Generic Repository
 
 Dababase:
-1. Sql Server 
+
+1.Sql Server 
