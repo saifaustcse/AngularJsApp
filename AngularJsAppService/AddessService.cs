@@ -21,7 +21,7 @@ namespace AngularJsAppService
             AddressModel addressModel = new AddressModel();
            
             List<AddressType> addressTypes = addressTypeRepository.All().ToList();
-            addressModel.AddressTypes = addressTypes.Select(a => new SelectModel { Value = a.AddressTypeId, Text = a.Value }).ToList();
+            addressModel.AddressTypes = addressTypes.Select(a => new SelectModel { Value = a.AddressTypeId, Text = a.Text }).ToList();
 
             return addressModel;
         }
@@ -81,6 +81,7 @@ namespace AngularJsAppService
         {
             var addressModel = new AddressModel();
             Address address = addressRepository.FindOne(x => x.StudentId == studentId && x.AddressTypeId== addressTypeId);
+
             if (address != null)
             {
                 addressModel.Street = address.Street;
@@ -91,6 +92,12 @@ namespace AngularJsAppService
                 addressModel.AddressTypeId = address.AddressTypeId;
                 addressModel.StudentId = address.StudentId;
             }
+            else
+            {
+                addressModel.StudentId = studentId;
+                addressModel.AddressTypeId = addressTypeId;
+            }
+
             List<AddressType> addressTypes = addressTypeRepository.All().ToList();
             addressModel.AddressTypes = addressTypes.Select(a => new SelectModel { Value = a.AddressTypeId, Text = a.Value }).ToList();
 

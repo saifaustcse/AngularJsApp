@@ -10,13 +10,15 @@ namespace AngularJsAppEF
 {
     public class AngularJsDbContext : DbContext
     {
-        public AngularJsDbContext()
-        //: base(nameOrConnectionString: @"AngularJsAppEntities")
-        : base(nameOrConnectionString: @"Data Source=SAIFUL-PC\SQLEXPRESS;initial Catalog=AngularJsAppDB;integrated security=true")
+
+        //public AngularJsDbContext(): base(nameOrConnectionString: @"AngularJsAppEntities")
+        public AngularJsDbContext() : base(nameOrConnectionString: @"Data Source=SAIFUL-PC\SQLEXPRESS;initial Catalog=AngularJsAppDB;integrated security=true")
         {
-            //Database.SetInitializer<AngularJsDbContext>(new DropCreateDatabaseAlways<AngularJsDbContext>());
-            Database.SetInitializer<AngularJsDbContext>(new CreateDatabaseIfNotExists<AngularJsDbContext>());
-            // Database.SetInitializer<AngularJsDbContext>(new DropCreateDatabaseIfModelChanges<AngularJsDbContext>());
+            Database.SetInitializer(new CreateDatabaseIfNotExists<AngularJsDbContext>());
+            //Database.SetInitializer(new DropCreateDatabaseAlways<AngularJsDbContext>());
+            //Database.SetInitializer(new DropCreateDatabaseIfModelChanges<AngularJsDbContext>());
+            // Database.SetInitializer(new AngularJsDbSeedData());
+
         }
 
         public DbSet<AddressType> AddressTypes { get; set; }

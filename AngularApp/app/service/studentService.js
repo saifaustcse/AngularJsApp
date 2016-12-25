@@ -75,6 +75,7 @@
 
         //Update student by id
         function update(id, data) {
+            alert(JSON.stringify(data));
             var url = URL + 'update/' + id;
             var deferred = $q.defer();
             $http.post(url, data).success(function (data) {
@@ -83,6 +84,6 @@
                 deferred.reject(error);
             });
             return deferred.promise;
-        }       
+        }
     }
 })();
