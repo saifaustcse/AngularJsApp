@@ -61,15 +61,14 @@ namespace AngularJsAppService
             {
                 //studentId will auto take from student which will auto generate after insert student 
                 //address.StudentId = student.StudentId; 
+                address.AddressTypeId = studentModel.Address.AddressTypeId;
                 address.Street = studentModel.Address.Street;
                 address.House = studentModel.Address.House;
                 address.PoBox = studentModel.Address.PoBox;
                 address.ZipCode = studentModel.Address.ZipCode;
                 address.City = studentModel.Address.City;
-                address.AddressTypeId = studentModel.Address.AddressTypeId;
+                student.Addresses.Add(address);
             }
-
-            student.Addresses.Add(address);
 
             try
             {

@@ -87,9 +87,10 @@ namespace AngularJsAppApi.Controllers
             return Ok(responseMessage);
         }
 
+
         [HttpPost]
         [Route("update/{id}")]
-        public IHttpActionResult Update([Range(1, int.MaxValue)]int id, [FromBody]StudentViewModel studentViewModel)
+        public IHttpActionResult Update(int id, [FromBody] StudentViewModel studentViewModel)
         {
             //StudentViewModel stdViewModel = new StudentViewModel();
             //stdViewModel.Student = studentService.Update(id, studentViewModel.Student);
