@@ -23,6 +23,7 @@ Back end:
    (I) One to one relationship
    (ii) One to mamy relationship
    (iii) Many to many relationship
+3. Seed Data
 3. Generic Repository
 
 Dababase:
