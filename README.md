@@ -1,31 +1,57 @@
-Demo Projet of University Management system/Student managemnet System
+# Enitity Framekwork - Databse Design
 
-Task List:
+## Technologies
 
-1. Crud operation (Insert,update,delete)
-2. Search 
-3. pagination
-4. Single page application using AngularJS and AngularUi
+-   [.NET 5](https://dotnet.microsoft.com/download)
+-   [ASP.NET Core 5](https://docs.microsoft.com/en-us/aspnet/core)
+-   [Entity Framework Core 5](https://docs.microsoft.com/en-us/ef/core)
 
-Front end:
+## Practices
 
-1. AngularJs
-2. AngularUI
-3. Jquery
-4. Bootstrap
-5. html
-6. css
+-   one-to-one, one-to-many, many-to-many relationship databse design
+-   code first entity frmamework approach
+-   data seeding
 
-Back end:
+## Run
 
-1. Asp.net WebApi2
-2. entity framework code first
-   (I) One to one relationship
-   (ii) One to mamy relationship
-   (iii) Many to many relationship
-3. Seed Data
-3. Generic Repository
+<details>
+<summary>Visual Studio</summary>
 
-Dababase:
+#### Prerequisites
 
-1. Sql Server 
+-   [.NET 5 SDK](https://dotnet.microsoft.com/download/dotnet/5.0)
+-   [SQL Server](https://go.microsoft.com/fwlink/?linkid=866662)
+
+#### Steps
+
+1. Open **EntityFramework.Database.Design.sln** in Visual Studio.
+2. Open nuget package console
+3. Run commands migration commands  
+   `Add-Migration InitialCreate`  
+   `Update-Database`
+4. Verify that database is created with seed dada
+5. Run the project
+
+</details>
+
+<details>
+<summary>Visual Studio Code</summary>
+
+#### Prerequisites
+
+-   [.NET 5 SDK](https://dotnet.microsoft.com/download/dotnet/5.0)
+-   [SQL Server](https://go.microsoft.com/fwlink/?linkid=866662)
+-   [Visual Studio Code](https://code.visualstudio.com)
+-   [C# Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
+
+#### Steps
+
+1. Open directory **entity-framework-database-design** in vs code
+2. Open Integrated Terminal under **EntityFramework.Database.Design** directiory
+3. Run commands migration commands  
+   `dotnet tool install --global dotnet-ef `  
+   `dotnet ef migrations add InitialCreate `  
+   `dotnet ef database update`
+4. Verify that database is created with seed data
+
+</details>
