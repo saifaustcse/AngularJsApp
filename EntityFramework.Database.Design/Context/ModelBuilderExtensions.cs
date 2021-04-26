@@ -10,82 +10,60 @@ public static class ModelBuilderExtensions
           new Department
           {
               DepartmentId = 1,
-              Code = "CSE",
-              Name = "Computer Science And Engineering",
+              Code = "IT",
+              Name = "Information Technology",
               IsActive = true,
               CreatedDate = DateTime.UtcNow
           },
          new Department
          {
              DepartmentId = 2,
-             Code = "EEE",
-             Name = "Electrical and Electronics Engineering",
+             Code = "Accounting",
+             Name = "Accounts",
              IsActive = true,
              CreatedDate = DateTime.UtcNow
          },
           new Department
           {
               DepartmentId = 3,
-              Code = "IPE",
-              Name = "Industrial and production engineering",
+              Code = "Admin",
+              Name = "Administration",
               IsActive = true,
               CreatedDate = DateTime.UtcNow
           }
       );
 
-        modelBuilder.Entity<Course>().HasData(
-           new Course
+        modelBuilder.Entity<Project>().HasData(
+           new Project
            {
-               CourseId = 1,
-               Code = "CSE 111",
-               Name = "Programming Language I",
-               Credit = 3,
+               ProjectId = 1,
+               Name = "ERP",
                IsActive = true,
                CreatedDate = DateTime.UtcNow
            },
-            new Course
+            new Project
             {
-                CourseId = 2,
-                Code = "CSE 110",
-                Name = "Programming Language-II",
-                Credit = 3,
-                IsActive = true,
-                CreatedDate = DateTime.UtcNow
-            },
-            new Course
-            {
-                CourseId = 3,
-                Code = "CSE 220",
-                Name = "Data Structures",
-                Credit = 3,
+                ProjectId = 2,
+                Name = "HRM",
                 IsActive = true,
                 CreatedDate = DateTime.UtcNow
             }
        );
 
-        modelBuilder.Entity<AddressType>().HasData(
-           new AddressType
+         modelBuilder.Entity<Employee>().HasData(
+           new Employee
            {
-               AddressTypeId = 1,
-               Value = 1,
-               Text = "Presnt",
-               IsActive = true,
-               CreatedDate = DateTime.UtcNow
-           },
-           new AddressType
-           {
-               AddressTypeId = 2,
-               Value = 2,
-               Text = "Permanent",
+               EmployeeId = 1,
+               FirstName = "Saiful",
+               LastName = "Islam",
+               Birthday = "1991/10/27",
+               Gender = "Male",
+               PhoneNumber = "880191",
+               Email = "s@mail.com",
                IsActive = true,
                CreatedDate = DateTime.UtcNow
            }
        );
 
-        //modelBuilder.Entity<Book>().HasData(
-        //    new Book { BookId = 1, AuthorId = 1, Title = "Hamlet" },
-        //    new Book { BookId = 2, AuthorId = 1, Title = "King Lear" },
-        //    new Book { BookId = 3, AuthorId = 1, Title = "Othello" }
-        //);
     }
 }

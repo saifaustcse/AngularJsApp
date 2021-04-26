@@ -8,18 +8,14 @@ using System.Threading.Tasks;
 
 namespace Demo.Core.Data.Models
 {
-    //[Table("Course")]
-    public class Course
+    //[Table("Project")]
+    public class Project
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int CourseId { get; set; }
-
-        public string Code { get; set; }
+        public int ProjectId { get; set; }
 
         public string Name { get; set; }
-
-        public int Credit { get; set; }
 
         public bool IsActive { get; set; } = true;
 

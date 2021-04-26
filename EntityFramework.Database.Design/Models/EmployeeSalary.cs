@@ -9,21 +9,28 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Demo.Core.Data.Models
 {
     //[Table("AddressType")]
-    public class AddressType
+    public class EmployeeSalary
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int AddressTypeId { get; set; }
+        public int EmployeeSalaryId { get; set; }
 
-        public int Value { set; get; }
-
-        public string Text { set; get; }
+        public float SalaryAmount { set; get; }
 
         public bool IsActive { get; set; } = true;
 
         public DateTime CreatedDate { get; set; } = DateTime.UtcNow;
 
         public DateTime? UpdatedDate { get; set; }
+
+        // One to One relationship
+        // One Employee has only one Salary
+        // One Salary has only one Employee
+        // So we need to add reference in both (Salary and Employee) table
+
+        public int EmployeeId { get; set; }
+
+        public virtual Employee Employee { get; set; }
 
     }
 }

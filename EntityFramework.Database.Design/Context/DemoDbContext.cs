@@ -18,13 +18,13 @@ namespace Demo.Core.Data.Interfaces
 
         public DbSet<Department> Department { get; set; }
 
-        public DbSet<Course> Course { get; set; }
+        public DbSet<Employee> Employee { get; set; }
 
-        public DbSet<Student> Student { get; set; }
+        public DbSet<EmployeeSalary> EmployeeSalary { get; set; }
 
-        public DbSet<AddressType> AddressType { get; set; }
+        public DbSet<Project> Project { get; set; }
 
-        public DbSet<Address> Address { get; set; }
+        public DbSet<EmployeeProject> EmployeeProject { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
