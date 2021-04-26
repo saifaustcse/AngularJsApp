@@ -117,16 +117,20 @@
 
 #### Execute the following inset query twice
 
-      INSERT INTO [EmployeeSalary] (
-      [EmployeeId]
-      ,[SalaryAmount]
-      ,[IsActive]
-      ,[CreatedDate]
-      )
-      VALUES (1, 3000, 1, GETDATE());
+      INSERT INTO [EmployeeProject] (
+            [EmployeeId]
+            ,[ProjectId]
+            ,[IsActive]
+            ,[CreatedDate]
+            )
+            VALUES
+         (1, 1, 1, GETDATE()),
+         (1, 2, 1, GETDATE()),
+         (2, 1, 1, GETDATE()),
+         (2, 2, 1, GETDATE());
 
 #### Verify that Same EmployeeId and ProjectId is used many items in EmployeeProject table
 
-![many-to-many](./resources/one-to-one.PNG)
+![many-to-many](./resources/many-to-many.png)
 
 </details>
