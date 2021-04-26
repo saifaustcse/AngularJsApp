@@ -70,7 +70,7 @@
 
 #### Employee table after seeding
 
-![one-to-many](./resources/one-to-many.jpg)
+![one-to-many](./resources/one-to-many.png)
 
 </details>
 
