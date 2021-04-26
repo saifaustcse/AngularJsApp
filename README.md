@@ -70,7 +70,7 @@
 -   One Department has many Employees
 -   So we need to add reference in Employees (many) table
 
-#### Verify that Same DepartmentId is used many items in Employee table
+#### Verify that Same DepartmentId is used many times in Employee table
 
 ![one-to-many](./resources/one-to-many.png)
 
@@ -129,7 +129,7 @@
          (2, 1, 1, GETDATE()),
          (2, 2, 1, GETDATE());
 
-#### Verify that Same EmployeeId and ProjectId is used many items in EmployeeProject table
+#### Verify that Same EmployeeId and ProjectId is used many times in EmployeeProject table
 
 ![many-to-many](./resources/many-to-many.png)
 
