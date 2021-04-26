@@ -59,39 +59,48 @@
 
 ## Check Relationship
 
+![diagram](./resources/diagram.png)
+
 <details>
 <summary>One to Many relationship</summary>
 
 #### Department and Employee
 
--  One Employee is associated only one department
--  One Department has many Employees
--  So we need to add reference in Employees (many) table
+-   One Employee is associated only one department
+-   One Department has many Employees
+-   So we need to add reference in Employees (many) table
 
-#### Employee table after seeding
+#### Verify that Same DepartmentId is used many items in Employee table
 
 ![one-to-many](./resources/one-to-many.png)
 
 </details>
 
 <details>
-<summary>Visual Studio Code</summary>
+<summary>One to One relationship</summary>
 
-#### Prerequisites
+#### Employee and EmployeeSalary
 
--   [.NET 5 SDK](https://dotnet.microsoft.com/download/dotnet/5.0)
--   [SQL Server](https://go.microsoft.com/fwlink/?linkid=866662)
--   [Visual Studio Code](https://code.visualstudio.com)
--   [C# Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
+-   One Employee is associated only one EmployeeSalary
+-   One EmployeeSalary is associated only one Employees
+-   So we need to add reference in both (EmployeeSalary and Employee) table but foreign key will be used only in mendotory table i.e EmployeeSalary
 
-#### Steps
+#### Execute the following inset query twice
 
-1. Open directory **entity-framework-database-design** in vs code
-2. Open Integrated Terminal under **EntityFramework.Database.Design** directiory
-3. Run commands migration commands  
-   `dotnet tool install --global dotnet-ef `  
-   `dotnet ef migrations add InitialCreate `  
-   `dotnet ef database update`
-4. Verify that database is created with seed data
+         INSERT INTO [EmployeeSalary] (
+         [EmployeeId]
+         ,[SalaryAmount]
+         ,[IsActive]
+         ,[CreatedDate]
+         )
+         VALUES (1, 3000, 1, GETDATE());
+
+#### Generally in One to many relation, you could enter multiple times EmployeeID, but here in one to one relation an error will be thrown while executing the query except first time
+
+         Cannot insert duplicate key row in object 'dbo.EmployeeSalary' with unique index 'IX_EmployeeSalary_EmployeeId'. The duplicate key value is (1).
+
+#### Verify that not duplicate EmployeeId is allowed EmployeeSalary table
+
+![one-to-one](./resources/one-to-one.png)
 
 </details>

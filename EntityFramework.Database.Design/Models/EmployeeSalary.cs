@@ -20,9 +20,9 @@ namespace Demo.Core.Data.Models
         public DateTime? UpdatedDate { get; set; }
 
         // One to One relationship
-        // One Employee has only one Salary
-        // One Salary has only one Employee
-        // So we need to add reference in both (Salary and Employee) table
+        // One Employee has only one EmployeeSalary
+        // One EmployeeSalary has only one Employee
+        // So we need to add reference in both (EmployeeSalary and Employee) table
 
         public int EmployeeId { get; set; }
 
