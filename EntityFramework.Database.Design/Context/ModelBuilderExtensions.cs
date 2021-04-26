@@ -54,12 +54,26 @@ public static class ModelBuilderExtensions
            new Employee
            {
                EmployeeId = 1,
+               DepartmentId=1,
                FirstName = "Saiful",
                LastName = "Islam",
                Birthday = "1991/10/27",
                Gender = "Male",
                PhoneNumber = "880191",
                Email = "s@mail.com",
+               IsActive = true,
+               CreatedDate = DateTime.UtcNow
+           },
+           new Employee
+           {
+               EmployeeId = 2,
+               DepartmentId=1,
+               FirstName = "ALex",
+               LastName = "Islam",
+               Birthday = "1991/10/27",
+               Gender = "Male",
+               PhoneNumber = "880171",
+               Email = "a@mail.com",
                IsActive = true,
                CreatedDate = DateTime.UtcNow
            }
