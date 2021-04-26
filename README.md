@@ -87,17 +87,17 @@
 
 #### Execute the following inset query twice
 
-         INSERT INTO [EmployeeSalary] (
-         [EmployeeId]
-         ,[SalaryAmount]
-         ,[IsActive]
-         ,[CreatedDate]
-         )
-         VALUES (1, 3000, 1, GETDATE());
+      INSERT INTO [EmployeeSalary] (
+      [EmployeeId]
+      ,[SalaryAmount]
+      ,[IsActive]
+      ,[CreatedDate]
+      )
+      VALUES (1, 3000, 1, GETDATE());
 
 #### Generally in One to many relation, you could enter multiple times EmployeeID, but here in one to one relation an error will be thrown while executing the query except first time
 
-         Cannot insert duplicate key row in object 'dbo.EmployeeSalary' with unique index 'IX_EmployeeSalary_EmployeeId'. The duplicate key value is (1).
+      Cannot insert duplicate key row in object 'dbo.EmployeeSalary' with unique index 'IX_EmployeeSalary_EmployeeId'. The duplicate key value is (1).
 
 #### Verify that not duplicate EmployeeId is allowed EmployeeSalary table
 
