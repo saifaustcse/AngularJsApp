@@ -62,7 +62,7 @@
 ![diagram](./resources/diagram.PNG)
 
 <details>
-<summary>One to Many relationship</summary>
+<summary>One to Many Relationship</summary>
 
 #### Department and Employee
 
@@ -77,7 +77,7 @@
 </details>
 
 <details>
-<summary>One to One relationship</summary>
+<summary>One to One Relationship</summary>
 
 #### Employee and EmployeeSalary
 
@@ -97,9 +97,36 @@
 
 #### Generally in One to many relation, you could enter multiple times EmployeeID, but here in one to one relation an error will be thrown while executing the query except first time
 
-![one-to-one-error](./resources/one-to-error.PNG)
-#### Verify that not duplicate EmployeeId is allowed EmployeeSalary table
+![one-to-one-error](./resources/error.PNG)
+
+#### Verify that no duplicate EmployeeId is allowed EmployeeSalary table
 
 ![one-to-one](./resources/one-to-one.PNG)
+
+</details>
+
+<details>
+<summary>Many to Relationship</summary>
+
+#### Employee and Project and EmployeeProject
+
+-   One Employee can be associated many projects
+-   One Project can be can be associated many Employees
+-   So we have created this new table i.e EmployeeProject
+-   We also need to add reference of both (project and Employee) table in EmployeeProject table
+
+#### Execute the following inset query twice
+
+      INSERT INTO [EmployeeSalary] (
+      [EmployeeId]
+      ,[SalaryAmount]
+      ,[IsActive]
+      ,[CreatedDate]
+      )
+      VALUES (1, 3000, 1, GETDATE());
+
+#### Verify that Same EmployeeId and ProjectId is used many items in EmployeeProject table
+
+![many-to-many](./resources/one-to-one.PNG)
 
 </details>

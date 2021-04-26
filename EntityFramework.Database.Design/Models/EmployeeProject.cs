@@ -12,8 +12,6 @@ namespace Demo.Core.Data.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        public string ProjectName { get; set; }
-
         public bool IsActive { get; set; } = true;
 
         public DateTime CreatedDate { get; set; } = DateTime.UtcNow;
