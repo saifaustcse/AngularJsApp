@@ -59,7 +59,7 @@
 
 ## Check Relationship
 
-![diagram](./resources/diagram.png)
+![diagram](./resources/diagram.PNG)
 
 <details>
 <summary>One to Many relationship</summary>
@@ -72,7 +72,7 @@
 
 #### Verify that Same DepartmentId is used many items in Employee table
 
-![one-to-many](./resources/one-to-many.PNG)
+![one-to-many](./resources/one-to-many.png)
 
 </details>
 
@@ -97,8 +97,7 @@
 
 #### Generally in One to many relation, you could enter multiple times EmployeeID, but here in one to one relation an error will be thrown while executing the query except first time
 
-      Cannot insert duplicate key row in object 'dbo.EmployeeSalary' with unique index 'IX_EmployeeSalary_EmployeeId'. The duplicate key value is (1).
-
+![one-to-one-error](./resources/one-to-error.PNG)
 #### Verify that not duplicate EmployeeId is allowed EmployeeSalary table
 
 ![one-to-one](./resources/one-to-one.PNG)
