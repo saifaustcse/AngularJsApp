@@ -72,7 +72,7 @@
 
 #### Verify that Same DepartmentId is used many items in Employee table
 
-![one-to-many](./resources/one-to-many.png)
+![one-to-many](./resources/one-to-many.PNG)
 
 </details>
 
@@ -101,6 +101,6 @@
 
 #### Verify that not duplicate EmployeeId is allowed EmployeeSalary table
 
-![one-to-one](./resources/one-to-one.png)
+![one-to-one](./resources/one-to-one.PNG)
 
 </details>
